@@ -16,11 +16,11 @@
     </heading>
 
     <!-- Start area -->
-    <section id="start">
+    <section id="start-area">
         <!-- Username -->
         <div>
             <label class="heading" for="username">Username:</label>
-            <input id="username" class="heading" type="text">
+            <input id="username" class="heading" type="text" placeholder="Enter your name here">
         </div>
         <!-- Characters -->
         <div>
@@ -49,14 +49,68 @@
         </div>
         <!-- Buttons -->
         <div>
-            <button class="btn">
+            <button id="start" class="btn">
                 <p>Start game</p>
             </button>
         </div>
     </section>
 
     <!-- Game area -->
-
+    <section id="game-area">
+        <!-- Informative part -->
+        <div>
+            <!-- Displayed character -->
+            <div class="character"></div>
+            <!-- Message -->
+            <div>
+                <div class="message-background">
+                    <p class="text"></p>
+                </div>
+            </div>
+            <!-- Score & Tries -->
+             <div>
+                <div>
+                    <h2 class="heading">Score</h2>
+                    <p class="text">0</p>
+                </div>
+                <div>
+                    <h2>Tries</h2>
+                    <p class="text">6</p>
+                </div>
+             </div>
+        </div>
+        <!-- Game field -->
+        <div class="game-field-background">
+            <div class="row">
+                <div data-attr="0" class="object"></div>
+                <div data-attr="1" class="object"></div>
+                <div data-attr="2" class="object"></div>
+            </div>
+            <div class="row">
+                <div data-attr="3" class="object"></div>
+                <div data-attr="4" class="object"></div>
+                <div data-attr="5" class="object"></div>
+            </div>
+            <div class="row">
+                <div data-attr="6" class="object"></div>
+                <div data-attr="7" class="object"></div>
+                <div data-attr="8" class="object"></div>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div>
+            <div>
+                <button id="restart" class="btn">
+                    <p>Restart</p>
+                </button>
+            </div>
+            <div>
+                <button id="exit" class="btn">
+                    <p>Exit</p>
+                </button>
+            </div>
+        </div>
+    </section>
 
     <!-- Result area -->
 
