@@ -18,19 +18,19 @@
     <!-- Start area -->
     <section id="start-area" class="area">
         <!-- Username -->
-        <div>
-            <label class="heading" for="username">Username:</label>
-            <input id="username" class="heading" type="text" placeholder="Enter your name here">
-        </div>
+        <form class="username-box">
+            <label class="username-label" for="username">Username:</label>
+            <input id="username" class="username-input" type="text" placeholder="Enter your name here" min="1" max="20" required>
+        </form>
         <!-- Characters -->
         <div>
             <div>
                 <h2 class="heading">Choose your character:</h2>
             </div>
             <div class="characters">
-                <div id="" class="character"></div>
-                <div id="" class="character"></div>
-                <div id="" class="character"></div>
+                <div id="grey" class="character"></div>
+                <div id="orange" class="character"></div>
+                <div id="spot" class="character"></div>
             </div>
         </div>
         <!-- Instructions -->
@@ -48,8 +48,8 @@
             </div>
         </div>
         <!-- Buttons -->
-        <div>
-            <button id="start" class="btn">
+        <div class="btn-container">
+            <button id="start" class="btn" type="submit">
                 <p>Start game</p>
             </button>
         </div>
@@ -74,7 +74,7 @@
                     <p class="text">0</p>
                 </div>
                 <div>
-                    <h2>Tries</h2>
+                    <h2 class="heading">Tries</h2>
                     <p class="text">6</p>
                 </div>
              </div>
