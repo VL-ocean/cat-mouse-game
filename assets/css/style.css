@@ -381,7 +381,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     }
 
     /* Result area */
-
     .column-layout {
         display: flex;
         flex-direction: row;
@@ -403,3 +402,16 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     }
 
 }
+
+/* Testing functionality of layout in css (later performed by JavaScript) */
+/* #start-area {
+    
+}
+
+#game-area {
+    display: none;
+}
+
+#result-area {
+    display: none;
+} */
