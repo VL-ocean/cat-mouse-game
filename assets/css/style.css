@@ -130,6 +130,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     justify-content: space-around;
 }
 
+.game-area-character {
+    margin: 10px;
+    width: 80px;
+    height: 120px;    
+}
+
 /* Message */
 .counts-parent {
     position: relative;
@@ -180,4 +186,30 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     width: 80px;
     height: 60px;
     margin: 10px;
+}
+
+/* Result area */
+.result-area-character {
+    margin: 10px auto;
+    width: 200px;
+    height: 300px;
+    position: relative;
+} 
+
+.result-message-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.total-score-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.total-score-box .heading, .total-score-box .text {
+    margin: 0 10px;
 }
