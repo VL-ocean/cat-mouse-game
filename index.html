@@ -58,26 +58,26 @@
     <!-- Game area -->
     <section id="game-area" class="area">
         <!-- Informative part -->
-        <div>
+        <div class="game-character-box">
             <!-- Displayed character -->
             <div class="character"></div>
             <!-- Message -->
-            <div>
+            <div class="counts-parent">
                 <div class="message-background">
                     <p class="text">Excellent, username!</p>
                 </div>
+                <!-- Score & Tries -->
+                <div class="counts-box">
+                    <div>
+                        <h2 class="text">Score</h2>
+                        <p class="text count">0</p>
+                    </div>
+                    <div>
+                        <h2 class="text">Tries</h2>
+                        <p class="text count">6</p>
+                    </div>
+                </div>
             </div>
-            <!-- Score & Tries -->
-             <div>
-                <div>
-                    <h2 class="heading">Score</h2>
-                    <p class="text">0</p>
-                </div>
-                <div>
-                    <h2 class="heading">Tries</h2>
-                    <p class="text">6</p>
-                </div>
-             </div>
         </div>
         <!-- Game field -->
         <div class="game-field-background">
@@ -98,7 +98,7 @@
             </div>
         </div>
         <!-- Buttons -->
-        <div>
+        <div class="btn-container">
             <div>
                 <button id="restart-game" class="btn">
                     <p>Restart</p>
@@ -129,7 +129,7 @@
             </div>
         </div>
         <!-- Buttons -->
-        <div>
+        <div class="btn-container">
             <div>
                 <button id="restart-result" class="btn">
                     <p>Play again</p>

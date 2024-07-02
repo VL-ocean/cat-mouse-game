@@ -3,7 +3,7 @@
 
 /* General styles */
 body {
-    background-color: #221916;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
@@ -24,8 +24,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 
 /* Start area */
 .area {
-    background-color: #D5CCC6;
+    background-color: white;
     padding: 10px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 /* Username */
@@ -48,22 +50,24 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     font-family: Comfortaa, sans-serif;
     font-size: 18px;
     border: 2px solid #221916;
-    background-color: #D5CCC6;
+    background-color: transparent;
     outline: none;
     color: #221916
 }
 
 .username-input:focus {
     background-color: #221916;
-    color: #D5CCC6;
+    color: white;
 }
 
 /* Characters */
 .heading {
     padding: 10px;
+    margin: 0 auto;
     font-family: Comfortaa, sans-serif;
     text-align: center;
     font-size: 18px;
+    width: fit-content;
 }
 
 .characters {
@@ -77,6 +81,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     margin: 10px;
     width: 80px;
     height: 120px;
+    flex-shrink: 0;
 }
 
 /* Instructions */
@@ -84,12 +89,17 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     font-family: Caudex, sans-serif;
     padding: 5px;
     list-style: none;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 16px;
 }
 
 /* Buttons */
 .btn-container {
     margin-top: 20px;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -98,13 +108,55 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     padding: 10px;
     font-family: Comfortaa, sans-serif;
     font-size: 18px;
-    background-color: #221916;
-    color: #D5CCC6;
+    background-color: #BD6E2A;
+    border: 2px solid #BD6E2A;
+    color: white;
     border: none;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #BD6E2A;
-    color: #D5CCC6;
+    background-color: white;
+    color: #BD6E2A;
+    border: 2px solid #BD6E2A;
+}
+
+/* Game area */
+
+/* Informative part */
+.game-character-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+/* Message */
+.counts-parent {
+    position: relative;
+    height: 140px;
+    display: flex;
+}
+
+.message-background {
+    background-color: lightpink;
+    color: #221916;
+    border: 2px solid #221916;
+    font-style: italic;
+    align-self: flex-end;
+} 
+
+/* Score & Tries */
+.counts-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.count {
+    font-size: 24px;
+    font-weight: bold;
 }
