@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     text-align: center;
     font-family: Caudex, sans-serif;
     font-size: 40px;
+    text-shadow: #221916 2px -2px 2px;
 }
 
 /* Start area */
@@ -111,7 +112,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 
 /* Buttons */
 .btn-container {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -120,13 +121,14 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 .btn {
-    padding: 10px;
+    padding: 8px 10px;
     font-family: Comfortaa, sans-serif;
     font-size: 18px;
-    background-color: #BD6E2A;
+    background-color: #fff;
     border: 2px solid #BD6E2A;
-    color: white;
-    border: none;
+    box-shadow: #221916 2px 2px 2px;
+    color: #BD6E2A;
+    font-weight: bold;
     cursor: pointer;
     min-width: 120px;
 }
@@ -168,7 +170,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     text-align: center;
 }
 
-
 /* Score & Tries */
 .counts-box {
     position: absolute;
@@ -182,6 +183,8 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 .count {
     font-size: 24px;
     font-weight: bold;
+    border: 1px solid #BD6E2A;
+    box-shadow: rgb(0, 0, 0) 1px 1px 3px;
 }
 
 /* Game field */
@@ -241,7 +244,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 
-/* Tablets and up (768px) */
+/* Tablets (768px and up) */
 @media screen and (min-width: 768px) {
     
     /* Game title */
@@ -288,12 +291,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         font-size: 20px;
         min-width: 160px;
     }
-
-    .btn:hover {
-        background-color: white;
-        color: #BD6E2A;
-        border: 2px solid #BD6E2A;
-    }
     
     /* Game area */
     /* Informative part */
@@ -322,4 +319,87 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         width: 200px;
         height: 300px;
     }
+}
+
+/* Desktop and laptop screens (992px and up) */
+@media screen and (min-width: 992px) {
+    /* Buttons */
+    .btn:hover {
+        background-color: #BD6E2A;
+        color: #fff;
+        border: 2px solid #BD6E2A;
+    }
+}
+
+/* Desktop and laptop screens (1024px and up) */
+@media screen and (min-width: 1024px) {
+    /* Game area */
+    .desktop-layout {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        margin-top: 20px;
+        margin: 20px 0 40px;
+    }
+
+    /* Informative part */
+    .game-character-box {
+        flex-direction: column;
+        margin-right: 20px;
+        justify-content: space-between;
+    }
+
+    .game-area-character {
+        width: 180px;
+        height: 240px;
+        margin-right: 80px;
+    }
+
+    /* Message */
+    .counts-parent {
+        height: fit-content;
+        align-self: center;
+    }
+
+    /* Score & Tries */
+    .counts-box {
+        display: flex;
+        flex-direction: column;
+        left: 130px;
+        top: -285px;
+        right: -60px;
+    }
+
+    .count {
+        margin-bottom: 10px;
+    }
+
+    /* Game field */
+    .game-field-background {
+        margin-top: 0;
+    }
+
+    /* Result area */
+
+    .column-layout {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .result-area-character {
+        width: 280px;
+        height: 420px;
+        margin: 0 20px;
+    }
+
+    .total-score-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: flex-start;
+        margin-top: 60px;
+    }
+
 }
