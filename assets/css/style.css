@@ -128,12 +128,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     color: white;
     border: none;
     cursor: pointer;
-}
-
-.btn:hover {
-    background-color: white;
-    color: #BD6E2A;
-    border: 2px solid #BD6E2A;
+    min-width: 120px;
 }
 
 /* Game area */
@@ -142,16 +137,18 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .game-area-character {
     margin: 10px;
     width: 80px;
     height: 120px;
+    flex-shrink: 0;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
+    background-image: url("../images/grey.png");
 }
 
 /* Message */
@@ -159,6 +156,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     position: relative;
     height: 140px;
     display: flex;
+    margin: 0 20px;
 }
 
 .message-background {
@@ -167,7 +165,9 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     border: 2px solid #BD6E2A;
     font-style: italic;
     align-self: flex-end;
-} 
+    text-align: center;
+}
+
 
 /* Score & Tries */
 .counts-box {
@@ -214,10 +214,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     margin: 10px auto;
     width: 200px;
     height: 300px;
+    flex-shrink: 0;
     position: relative;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
+    background-image: url("../images/grey.png");
 } 
 
 .result-message-box {
@@ -236,4 +238,88 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 
 .total-score-box .heading, .total-score-box .text {
     margin: 0 10px;
+}
+
+
+/* Tablets and up (768px) */
+@media screen and (min-width: 768px) {
+    
+    /* Game title */
+    .title {
+        font-size: 60px;
+    }
+
+    /* Start area */
+    .area {
+        max-width: 700px;
+    }
+
+    /* Username */
+    .username-box {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .username-label {
+        font-size: 20px;
+    }
+
+    .username-input {
+        font-size: 20px;
+    }
+
+    /* Characters */
+    .heading {
+        font-size: 20px;
+    }
+
+    .character {
+        width: 180px;
+        height: 240px;
+    }
+
+    /* Instructions */
+    .text {
+        font-size: 18px;
+    }
+
+    /* Buttons */
+    .btn {
+        font-size: 20px;
+        min-width: 160px;
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: #BD6E2A;
+        border: 2px solid #BD6E2A;
+    }
+    
+    /* Game area */
+    /* Informative part */
+    .game-area-character {
+        width: 120px;
+        height: 180px;
+    }
+
+    /* Message */
+    .counts-parent {
+        height: 200px;
+    }
+
+    .count {
+        font-size: 28px;
+    }
+
+    /* Game field */
+    .object {
+        width: 120px;
+        height: 90px;
+    }
+
+    /* Result area */
+    .result-area-character {
+        width: 200px;
+        height: 300px;
+    }
 }
