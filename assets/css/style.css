@@ -82,6 +82,21 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     width: 80px;
     height: 120px;
     flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#grey {
+    background-image: url("../images/grey.png");
+}
+
+#orange {
+    background-image: url("../images/orange.png");
+}
+
+#spot {
+    background-image: url("../images/grey.png");
 }
 
 /* Instructions */
@@ -133,7 +148,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 .game-area-character {
     margin: 10px;
     width: 80px;
-    height: 120px;    
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    
 }
 
 /* Message */
@@ -182,7 +200,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 .object {
-    background-color: #382620;
+    background-image: url("../images/door.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 80px;
     height: 60px;
     margin: 10px;
@@ -194,6 +215,9 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     width: 200px;
     height: 300px;
     position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    
 } 
 
 .result-message-box {
