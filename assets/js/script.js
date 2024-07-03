@@ -3,21 +3,21 @@ let username = "";
 let character;
 let characterArray = [{
     name: "grey",
-    normal: "./assets/images/grey.png",
-    happy: "./assets/images/grey-happy.png",
-    sad: "./assets/images/grey-sad.png"
+    normal: 'url("./assets/images/grey.png")',
+    happy: 'url("./assets/images/grey-happy.png")',
+    sad: 'url("./assets/images/grey-sad.png")'
 },
 {
     name: "orange",
-    normal: "./assets/images/orange.png",
-    happy: "./assets/images/orange-happy.png",
-    sad: "./assets/images/orange-sad.png"
+    normal: 'url("./assets/images/orange.png")',
+    happy: 'url("./assets/images/orange-happy.png")',
+    sad: 'url("./assets/images/orange-sad.png")'
 },
 {
     name: "spot",
-    normal: "./assets/images/spot.png",
-    happy: "./assets/images/spot-happy.png",
-    sad: "./assets/images/spot-sad.png"
+    normal: 'url("./assets/images/spot.png")',
+    happy: 'url("./assets/images/spot-happy.png")',
+    sad: 'url("./assets/images/spot-sad.png")'
 }];
 let contentArray = [{
     type: "mouse",
@@ -57,7 +57,6 @@ let contentArray = [{
 }];
 
 // Selection of elements from DOM
-document.getElementById('username').value; // get entered username
 let characters = document.getElementsByClassName("character");
 
 
@@ -135,9 +134,71 @@ function borderChange(box) {
  * and a character was chosen
  */
 function startGame() {
-    if (validateUsername() && assignCharacter()) {
-        runGame()
+    let validUsername = false;
+    let assignedCharacter = false;
+    let messageString = "";
+    validUsername = validateUsername();
+
+    if (validUsername) {
+        assignedCharacter = assignCharacter();
+        if (assignedCharacter) {
+            runGame();
+        }
+    } 
+    
+
+    // if (validUsername && assignedCharacter === "true") {
+    //     runGame();
+    // } else if (!validUsername && !assignedCharacter) {
+        
+    // } else if (validUsername && !assignedCharacter) {
+        
+    // } else if (!validUsername && assignedCharacter) {
+        
+    // }
+}
+
+/**
+ * validates the username,
+ * and assigns it to username variable
+ */
+function validateUsername() {
+    let enteredUsername = document.getElementById('username').value;
+    let usernamePattern = /^[a-zA-Z ]+$/;
+    if (enteredUsername.length < 1) {
+        alert("Please enter your name");
+    } else if (enteredUsername.length > 20) {
+        alert("You can use up to 20 characters only");
+    } else if (enteredUsername.match(usernamePattern)) {
+        username = enteredUsername;
+        return true;
     } else {
-        alert("Please enter username and choose a character")
+        alert("Please use letters only");
     }
+}
+
+/**
+ * Checks if the character was chosen,
+ * sets the chosen character image for the game area
+ */
+function assignCharacter() {
+    if (0 >= character <= 2) {
+        document.getElementById("game-area").style.display = "block";
+        let chosenCharacter = characterArray[character].normal;
+        console.log(document.getElementsByClassName("game-area-character")[0]);
+        document.getElementsByClassName("game-area-character")[0].style.backgroundImage = `"${chosenCharacter}"`;
+    } else {
+        alert("Please choose a character");
+    }
+}
+
+/**
+ * display message under input instead of alert for validateUsername() function
+ */
+function displayInputMessage(text) {
+    
+}
+
+function runGame() {
+
 }
