@@ -1,23 +1,23 @@
 // Global variables, arrays
 let username = "";
-let character;
+let character = NaN;
 let characterArray = [{
     name: "grey",
-    normal: 'url("./assets/images/grey.png")',
-    happy: 'url("./assets/images/grey-happy.png")',
-    sad: 'url("./assets/images/grey-sad.png")'
+    normal: 'url("./assets/images/grey.webp")',
+    happy: 'url("./assets/images/grey-happy.webp")',
+    sad: 'url("./assets/images/grey-sad.webp")'
 },
 {
     name: "orange",
-    normal: 'url("./assets/images/orange.png")',
-    happy: 'url("./assets/images/orange-happy.png")',
-    sad: 'url("./assets/images/orange-sad.png")'
+    normal: 'url("./assets/images/orange.webp")',
+    happy: 'url("./assets/images/orange-happy.webp")',
+    sad: 'url("./assets/images/orange-sad.webp")'
 },
 {
     name: "spot",
-    normal: 'url("./assets/images/spot.png")',
-    happy: 'url("./assets/images/spot-happy.png")',
-    sad: 'url("./assets/images/spot-sad.png")'
+    normal: 'url("./assets/images/spot.webp")',
+    happy: 'url("./assets/images/spot-happy.webp")',
+    sad: 'url("./assets/images/spot-sad.webp")'
 }];
 let contentArray = [{
     type: "mouse",
@@ -186,7 +186,7 @@ function assignCharacter() {
         document.getElementById("game-area").style.display = "block";
         let chosenCharacter = characterArray[character].normal;
         console.log(document.getElementsByClassName("game-area-character")[0]);
-        document.getElementsByClassName("game-area-character")[0].style.backgroundImage = `"${chosenCharacter}"`;
+        document.getElementsByClassName("game-area-character")[0].style.backgroundImage = chosenCharacter;
     } else {
         alert("Please choose a character");
     }

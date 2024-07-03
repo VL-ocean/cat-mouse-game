@@ -89,15 +89,15 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 #grey {
-    background-image: url("../images/grey.png");
+    background-image: url("../images/grey.webp");
 }
 
 #orange {
-    background-image: url("../images/orange.png");
+    background-image: url("../images/orange.webp");
 }
 
 #spot {
-    background-image: url("../images/grey.png");
+    background-image: url("../images/spot.webp");
 }
 
 /* Instructions */
@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../images/grey.png");
+    background-image: url("../images/grey.webp");
 }
 
 /* Message */
@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 .object {
-    background-image: url("../images/door.png");
+    background-image: url("../images/door.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../images/grey.png");
+    background-image: url("../images/grey.webp");
 } 
 
 /* Message attached to the parent */
