@@ -1,23 +1,23 @@
 // Global variables, arrays
 let username = "";
-let character = NaN;
+let character = 3;
 let characterArray = [{
     name: "grey",
-    normal: 'url("./assets/images/grey.webp")',
-    happy: 'url("./assets/images/grey-happy.webp")',
-    sad: 'url("./assets/images/grey-sad.webp")'
+    normal: "./assets/images/grey.webp",
+    happy: "./assets/images/grey-happy.webp",
+    sad: "./assets/images/grey-sad.webp"
 },
 {
     name: "orange",
-    normal: 'url("./assets/images/orange.webp")',
-    happy: 'url("./assets/images/orange-happy.webp")',
-    sad: 'url("./assets/images/orange-sad.webp")'
+    normal: "./assets/images/orange.webp",
+    happy: "./assets/images/orange-happy.webp",
+    sad: "./assets/images/orange-sad.webp'"
 },
 {
     name: "spot",
-    normal: 'url("./assets/images/spot.webp")',
-    happy: 'url("./assets/images/spot-happy.webp")',
-    sad: 'url("./assets/images/spot-sad.webp")'
+    normal: "./assets/images/spot.webp",
+    happy: "./assets/images/spot-happy.webp",
+    sad: "./assets/images/spot-sad.webp"
 }];
 let contentArray = [{
     type: "mouse",
@@ -58,6 +58,8 @@ let contentArray = [{
 
 // Selection of elements from DOM
 let characters = document.getElementsByClassName("character");
+let gameCharacter = document.getElementsByClassName("game-area-character")[0];
+
 
 
 // Once the page loads, add event listeners to buttons and characters
@@ -136,26 +138,13 @@ function borderChange(box) {
 function startGame() {
     let validUsername = false;
     let assignedCharacter = false;
-    let messageString = "";
     validUsername = validateUsername();
-
     if (validUsername) {
         assignedCharacter = assignCharacter();
         if (assignedCharacter) {
             runGame();
         }
     } 
-    
-
-    // if (validUsername && assignedCharacter === "true") {
-    //     runGame();
-    // } else if (!validUsername && !assignedCharacter) {
-        
-    // } else if (validUsername && !assignedCharacter) {
-        
-    // } else if (!validUsername && assignedCharacter) {
-        
-    // }
 }
 
 /**
@@ -182,11 +171,10 @@ function validateUsername() {
  * sets the chosen character image for the game area
  */
 function assignCharacter() {
-    if (0 >= character <= 2) {
-        document.getElementById("game-area").style.display = "block";
+    if (character < 3) {
         let chosenCharacter = characterArray[character].normal;
-        console.log(document.getElementsByClassName("game-area-character")[0]);
-        document.getElementsByClassName("game-area-character")[0].style.backgroundImage = chosenCharacter;
+        gameCharacter.style.backgroundImage = "url(" + chosenCharacter + ")";
+        return true;
     } else {
         alert("Please choose a character");
     }
@@ -200,5 +188,5 @@ function displayInputMessage(text) {
 }
 
 function runGame() {
-
+    console.log("run game function");
 }
