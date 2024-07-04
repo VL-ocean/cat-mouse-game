@@ -61,6 +61,7 @@ let characters = document.getElementsByClassName("character");
 let gameCharacter = document.getElementsByClassName("game-area-character")[0];
 let objectsArray = document.getElementsByClassName("object");
 let currentScore = document.getElementById("score");
+let tryCount = document.getElementById("tries");
 
 // Once the page loads, add event listeners to buttons and characters
 document.addEventListener("DOMContentLoaded", function() {
@@ -241,15 +242,26 @@ function checkChoice() {
     }
 }
 
+/**
+ * Changes the background of the clicked object to the mouse picture,
+ * displays a message, increaments the score
+ * and reduces the tries
+ */
 function positiveChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/mouse.webp')";
     displayMessage("Excellent");
     incrementScore();
+    countTries();
 }
 
+/**
+ * Changes the background of the clicked object to the empty picture,
+ * displays a message and reduces the tries
+ */
 function negativeChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/empty.webp')";
     displayMessage("Don't worry");
+    countTries();
 }
 
 /**
@@ -269,4 +281,8 @@ function incrementScore() {
     currentScore.innerHTML = newScore;
 }
 
-
+function countTries() {
+    let oldAmount = parseInt(tryCount.innerHTML);
+    let newAmount = --oldAmount;
+    tryCount.innerHTML = newAmount;
+}
