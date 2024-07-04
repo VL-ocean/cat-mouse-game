@@ -252,6 +252,7 @@ function positiveChoice(indexNum) {
     displayMessage("Excellent");
     incrementScore();
     countTries();
+    checkValues();
 }
 
 /**
@@ -262,6 +263,7 @@ function negativeChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/empty.webp')";
     displayMessage("Don't worry");
     countTries();
+    checkValues();
 }
 
 /**
@@ -281,8 +283,32 @@ function incrementScore() {
     currentScore.innerHTML = newScore;
 }
 
+/**
+ * Reads the current number of attempts, decreases it by one
+ * and assigns the new number into its box
+ */
 function countTries() {
     let oldAmount = parseInt(tryCount.innerHTML);
     let newAmount = --oldAmount;
     tryCount.innerHTML = newAmount;
+}
+
+function checkValues() {
+    if (tryCount.innerHTML === "0") {
+        countResult();
+    } else if (currentScore.innerHTML === "6") {
+        displayWin();
+    }
+}
+
+function countResult() {
+    console.log("countResult function called");
+}
+
+function displayWin() {
+    console.log("displayWin function called");
+}
+
+function displayLoss() {
+
 }
