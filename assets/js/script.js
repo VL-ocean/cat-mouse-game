@@ -21,39 +21,39 @@ let characterArray = [{
 }];
 let contentArray = [{
     type: "mouse",
-    value: 1
+    value: 1,
 },
 {
     type: "empty",
-    value: 0
+    value: 0,
 },
 {
     type: "mouse",
-    value: 1
+    value: 1,
 },
 {
     type: "mouse",
-    value: 1
+    value: 1,
 },
 {
     type: "empty",
-    value: 0
+    value: 0,
 },
 {
     type: "mouse",
-    value: 1
+    value: 1,
 },
 {
     type: "empty",
-    value: 0
+    value: 0,
 },
 {
     type: "mouse",
-    value: 1
+    value: 1,
 },
 {
     type: "mouse",
-    value: 1
+    value: 1,
 }];
 
 // Selection of elements from DOM
@@ -144,7 +144,7 @@ function startGame() {
         if (assignedCharacter) {
             runGame();
         }
-    } 
+    }
 }
 
 /**
@@ -223,12 +223,33 @@ function objectsListen() {
     }
 }
 
+/**
+ * Reads data-attr of the clicked box and saves it as index number,
+ * reads type property of the object from contentArray under that index,
+ * checks the user's choice and calls the function to display the outcome
+ */
 function checkChoice() {
     let indexNum = this.getAttribute("data-attr");
     let choice = contentArray[indexNum].type;
     console.log(indexNum);
     console.log(choice);
+    if (choice === "mouse") {
+        positiveChoice(indexNum);
+    } else if (choice === "empty") {
+        negativeChoice(indexNum);
+    } else {
+        alert(`Invalid type: ${choice}`);
+    }
 }
 
+function positiveChoice(indexNum) {
+    console.log(indexNum, "positiveChoice function called");
+
+}
+
+function negativeChoice(indexNum) {
+    console.log(indexNum, "negativeChoice function called");
+
+}
 
 
