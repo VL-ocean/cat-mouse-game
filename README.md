@@ -112,6 +112,7 @@ Click | Open | &check;
 
 ### Fixed Bugs
 
+- The assignCharacter function didn't work properly. The problem was in setting the background-image url and inserting it as a new style for the element. When looking through some tutorials (W3Schools, Stackoverflow), I have realised that I have set it wrong. I changed it to '"url(" + chosenCharacter + ")"' and it worked perfectly.
 - .
 
 ### Unfixed Bugs
@@ -149,9 +150,10 @@ Click | Open | &check;
 ## Credits 
 
   - ### Tutorials & Content  
-    - [Code institute](https://learn.codeinstitute.net/) - The tutorials and videos were used to choose the elements and implement the styles.
-    - [W3Schools](https://www.w3schools.com/) - The information about elements, values and attributes was used.
-    - [MDN](https://developer.mozilla.org/en-US/) - The information about elements, values and attributes was used.
+    - [Code institute](https://learn.codeinstitute.net/) - The tutorials and walkthrough projects.
+    - [W3Schools](https://www.w3schools.com/) - The information about HTML, CSS and JavaScript.
+    - [MDN](https://developer.mozilla.org/en-US/) - The information about HTML, CSS and JavaScript.
+    - [Stackoverflow](https://stackoverflow.com/) - The use of JavaScript to change html and styles.
 
   - ### Graphics
     - [Google fonts](https://fonts.google.com/knowledge) - The Fonts were imported from this library.

@@ -153,6 +153,7 @@ function startGame() {
  */
 function validateUsername() {
     let enteredUsername = document.getElementById('username').value;
+    // The source https://stackoverflow.com/questions/9628879/javascript-regex-username-validation
     let usernamePattern = /^[a-zA-Z ]+$/;
     if (enteredUsername.length < 1) {
         alert("Please enter your name");
@@ -173,6 +174,7 @@ function validateUsername() {
 function assignCharacter() {
     if (character < 3) {
         let chosenCharacter = characterArray[character].normal;
+        // The source https://stackoverflow.com/questions/19066638/insert-javascript-variable-as-background-image-source
         gameCharacter.style.backgroundImage = "url(" + chosenCharacter + ")";
         return true;
     } else {
