@@ -5,19 +5,19 @@ let characterArray = [{
     name: "grey",
     normal: "url('./assets/images/grey.webp')",
     happy: "url('./assets/images/grey-happy.webp')",
-    sad: "url('./assets/images/grey-sad.webp')"
+    sad: "url('./assets/images/grey-sad.webp')",
 },
 {
     name: "orange",
     normal: "url('./assets/images/orange.webp')",
     happy: "url('./assets/images/orange-happy.webp')",
-    sad: "url('./assets/images/orange-sad.webp')"
+    sad: "url('./assets/images/orange-sad.webp')",
 },
 {
     name: "spot",
     normal: "url('./assets/images/spot.webp')",
     happy: "url('./assets/images/spot-happy.webp')",
-    sad: "url('./assets/images/spot-sad.webp')"
+    sad: "url('./assets/images/spot-sad.webp')",
 }];
 let contentArray = [{
     type: "mouse",
@@ -59,6 +59,7 @@ let contentArray = [{
 // Selection of elements from DOM
 let characters = document.getElementsByClassName("character");
 let gameCharacter = document.getElementsByClassName("game-area-character")[0];
+let objectsArray = document.getElementsByClassName("object");
 
 
 // Once the page loads, add event listeners to buttons and characters
@@ -212,20 +213,22 @@ function randomiseContentArray(array) {
 }
 
 /**
- * Adds event listeners to objects, 
- * reads number of the object
- * and transfers it to the function which will process the user's choice
+ * Adds event listeners to objects, works once
  */
 function objectsListen() {
-    let objectsArray = document.getElementsByClassName("object");
     for (let object of objectsArray) {
-        object.addEventListener("click", function() {
-            let indexNum = this.getAttribute("data-attr");
-            checkChoice(indexNum);
-        });
+        object.addEventListener("click", checkChoice, {
+            once: true,
+          });
     }
 }
 
-function checkChoice(indexNum) {
+function checkChoice() {
+    let indexNum = this.getAttribute("data-attr");
+    let choice = contentArray[indexNum].type;
     console.log(indexNum);
+    console.log(choice);
 }
+
+
+
