@@ -163,6 +163,7 @@ Click | Open | &check;
     - [hex to rgba](https://rgbacolorpicker.com/hex-to-rgba) - This tool was used to convert hex value of color into rgba, for the form on the tablet layout.
 
   - ### Photos
+    - [Favicon](https://www.favicon.cc/) - The tool was used to create a favicon.
 
   - ### Text content
 

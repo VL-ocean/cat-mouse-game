@@ -188,9 +188,9 @@ function assignCharacter() {
  */
 function runGame() {
     displayMessage("Feed me");
-    changeArea("start-area", "game-area");
     randomiseContentArray(contentArray);
     objectsListen();
+    changeArea("start-area", "game-area");
 }
 
 /**
@@ -293,6 +293,11 @@ function countTries() {
     tryCount.innerHTML = newAmount;
 }
 
+/**
+ * Reads and checks current number of attempts and score,
+ * proceeds to countResult if tries equal zero 
+ * or the score equals six
+ */
 function checkValues() {
     if (tryCount.innerHTML === "0") {
         countResult();
@@ -301,8 +306,20 @@ function checkValues() {
     }
 }
 
+/**
+ * Compares user score with win score,
+ * calls next functions to display the result to the user
+ */
 function countResult() {
-    console.log("countResult function called");
+    let winValue = 6;
+    let userScore = parseInt(currentScore.innerHTML);
+    if (userScore === winValue) {
+        displayWin();
+    } else if (userScore < winValue) {
+        displayLoss();
+    } else {
+        alert("Invalid user score");
+    }
 }
 
 function displayWin() {
@@ -310,5 +327,5 @@ function displayWin() {
 }
 
 function displayLoss() {
-
+    console.log("displayLoss function called");
 }
