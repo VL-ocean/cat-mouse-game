@@ -91,7 +91,7 @@ function buttonReact() {
             } else {
                 alert("unknown button id");
             }
-        })
+        });
     }
 }
 
@@ -114,7 +114,7 @@ function characterListen() {
             } else {
                 alert("unknown character id");
             }
-        })
+        });
     }
 }
 
@@ -189,6 +189,51 @@ function displayInputMessage(text) {
     
 }
 
+/**
+ * The function prepares the game area, the clickable objects and the contentArray
+ */
 function runGame() {
-    console.log("run game function");
+    changeArea("start-area", "game-area");
+    randomiseContentArray(contentArray);
+    objectsListen();
+}
+
+/**
+ * Manages the area transfer, the current area disappears,
+ * the next area arrives
+ */
+function changeArea(a, b) {
+    document.getElementById(a).style.display = "none";
+    document.getElementById(b).style.display = "block";
+}
+
+/**
+ * Mixes the contentArray, which is passed as a parameter, 
+ * so that every new game has various layouts of mice inside the boxes.
+ */
+function randomiseContentArray(array) {
+    // The source https://stackoverflow.com/a/12646864 
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+/**
+ * Adds event listeners to objects, 
+ * reads number of the object
+ * and transfers it to the function which will process the user's choice
+ */
+function objectsListen() {
+    let objectsArray = document.getElementsByClassName("object");
+    for (let object of objectsArray) {
+        object.addEventListener("click", function() {
+            let indexNum = this.getAttribute("data-attr");
+            checkChoice(indexNum);
+        });
+    }
+}
+
+function checkChoice(indexNum) {
+    console.log(indexNum);
 }

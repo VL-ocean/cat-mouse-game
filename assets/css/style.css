@@ -151,7 +151,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     height: 120px;
     flex-shrink: 0;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     background-image: url("../images/grey.webp");
 }
@@ -229,7 +228,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     flex-shrink: 0;
     position: relative;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     background-image: url("../images/grey.webp");
 } 
