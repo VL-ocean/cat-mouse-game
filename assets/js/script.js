@@ -3,21 +3,21 @@ let username = "";
 let character = 3;
 let characterArray = [{
     name: "grey",
-    normal: "./assets/images/grey.webp",
-    happy: "./assets/images/grey-happy.webp",
-    sad: "./assets/images/grey-sad.webp"
+    normal: "url('./assets/images/grey.webp')",
+    happy: "url('./assets/images/grey-happy.webp')",
+    sad: "url('./assets/images/grey-sad.webp')"
 },
 {
     name: "orange",
-    normal: "./assets/images/orange.webp",
-    happy: "./assets/images/orange-happy.webp",
-    sad: "./assets/images/orange-sad.webp'"
+    normal: "url('./assets/images/orange.webp')",
+    happy: "url('./assets/images/orange-happy.webp')",
+    sad: "url('./assets/images/orange-sad.webp')"
 },
 {
     name: "spot",
-    normal: "./assets/images/spot.webp",
-    happy: "./assets/images/spot-happy.webp",
-    sad: "./assets/images/spot-sad.webp"
+    normal: "url('./assets/images/spot.webp')",
+    happy: "url('./assets/images/spot-happy.webp')",
+    sad: "url('./assets/images/spot-sad.webp')"
 }];
 let contentArray = [{
     type: "mouse",
@@ -59,7 +59,6 @@ let contentArray = [{
 // Selection of elements from DOM
 let characters = document.getElementsByClassName("character");
 let gameCharacter = document.getElementsByClassName("game-area-character")[0];
-
 
 
 // Once the page loads, add event listeners to buttons and characters
@@ -173,20 +172,13 @@ function validateUsername() {
  */
 function assignCharacter() {
     if (character < 3) {
-        let chosenCharacter = characterArray[character].normal;
+        let chosenCharacter = characterArray[character].normal; 
         // The source https://stackoverflow.com/questions/19066638/insert-javascript-variable-as-background-image-source
-        gameCharacter.style.backgroundImage = "url(" + chosenCharacter + ")";
+        gameCharacter.style.backgroundImage = chosenCharacter;
         return true;
     } else {
         alert("Please choose a character");
     }
-}
-
-/**
- * display message under input instead of alert for validateUsername() function
- */
-function displayInputMessage(text) {
-    
 }
 
 /**

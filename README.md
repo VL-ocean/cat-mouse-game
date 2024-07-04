@@ -112,8 +112,8 @@ Click | Open | &check;
 
 ### Fixed Bugs
 
-- The assignCharacter function didn't work properly. The problem was in setting the background-image url and inserting it as a new style for the element. When looking through some tutorials (W3Schools, Stackoverflow), I have realised that I have set it wrong. I changed it to '"url(" + chosenCharacter + ")"' and it worked perfectly.
-- .
+- The assignCharacter function didn't work properly. The problem was in setting the background-image url and inserting it as a new style for the element. When looking through some tutorials (W3Schools, Stackoverflow), I have realised that I have set it wrong. I changed it to "url(" + chosenCharacter + ")", then I updated url in the object to "url('./assets/images/grey.webp')", so I can use a variable instead of concatenating and it worked perfectly this way.
+- 
 
 ### Unfixed Bugs
 

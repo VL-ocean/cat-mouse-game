@@ -152,7 +152,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     flex-shrink: 0;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../images/grey.webp");
 }
 
 /* Message */
