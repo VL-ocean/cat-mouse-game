@@ -60,7 +60,7 @@ let contentArray = [{
 let characters = document.getElementsByClassName("character");
 let gameCharacter = document.getElementsByClassName("game-area-character")[0];
 let objectsArray = document.getElementsByClassName("object");
-
+let currentScore = document.getElementById("score");
 
 // Once the page loads, add event listeners to buttons and characters
 document.addEventListener("DOMContentLoaded", function() {
@@ -186,6 +186,7 @@ function assignCharacter() {
  * The function prepares the game area, the clickable objects and the contentArray
  */
 function runGame() {
+    displayMessage("Feed me");
     changeArea("start-area", "game-area");
     randomiseContentArray(contentArray);
     objectsListen();
@@ -231,8 +232,6 @@ function objectsListen() {
 function checkChoice() {
     let indexNum = this.getAttribute("data-attr");
     let choice = contentArray[indexNum].type;
-    console.log(indexNum);
-    console.log(choice);
     if (choice === "mouse") {
         positiveChoice(indexNum);
     } else if (choice === "empty") {
@@ -243,13 +242,31 @@ function checkChoice() {
 }
 
 function positiveChoice(indexNum) {
-    console.log(indexNum, "positiveChoice function called");
-
+    objectsArray[indexNum].style.backgroundImage = "url('./assets/images/mouse.webp')";
+    displayMessage("Excellent");
+    incrementScore();
 }
 
 function negativeChoice(indexNum) {
-    console.log(indexNum, "negativeChoice function called");
+    objectsArray[indexNum].style.backgroundImage = "url('./assets/images/empty.webp')";
+    displayMessage("Don't worry");
+}
 
+/**
+ * Displays message to the user, after each choice
+ */
+function displayMessage(message) {
+    document.getElementById("game-area-message").innerHTML = message + ', ' + username + '!';
+}
+
+/**
+ * Reads current score, increases it by one
+ * and assigns the new number into the score box
+ */
+function incrementScore() {
+    let oldScore = parseInt(currentScore.innerHTML);
+    let newScore = ++oldScore;
+    currentScore.innerHTML = newScore;
 }
 
 

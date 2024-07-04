@@ -158,17 +158,23 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 .counts-parent {
     position: relative;
     height: 140px;
+    min-width: 160px;
     display: flex;
     margin: 0 20px;
+    justify-content: center;
 }
 
 .message-background {
     background-color: #fff;
     color: #221916;
-    border: 2px solid #BD6E2A;
+    text-shadow: #221916 0px 0px 1px, #BD6E2A 1px 1px 2px;
     font-style: italic;
     align-self: flex-end;
     text-align: center;
+}
+
+.message-background .text {
+    font-size: 18px;
 }
 
 /* Score & Tries */
@@ -310,8 +316,14 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     /* Message */
     .counts-parent {
         height: 200px;
+        min-width: 240px;
     }
 
+    .message-background .text {
+        font-size: 24px;
+    }
+
+    /* Score & Tries */
     .count {
         font-size: 28px;
     }
@@ -341,6 +353,11 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 
 /* Desktop and laptop screens (1024px and up) */
 @media screen and (min-width: 1024px) {
+    /* Start area */
+    .area {
+        max-width: 800px;
+    }
+    
     /* Game area */
     .desktop-layout {
         display: flex;
