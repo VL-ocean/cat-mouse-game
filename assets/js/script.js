@@ -58,10 +58,13 @@ let contentArray = [{
 
 // Selection of elements from DOM
 let characters = document.getElementsByClassName("character");
-let gameCharacter = document.getElementsByClassName("game-area-character")[0];
+let gameCharacter = document.getElementById("game-area-character");
 let objectsArray = document.getElementsByClassName("object");
 let currentScore = document.getElementById("score");
 let tryCount = document.getElementById("tries");
+let resultCharacter = document.getElementById("result-area-character");
+let totalScore = document.getElementById("total-score");
+
 
 // Once the page loads, add event listeners to buttons and characters
 document.addEventListener("DOMContentLoaded", function() {
@@ -187,10 +190,10 @@ function assignCharacter() {
  * The function prepares the game area, the clickable objects and the contentArray
  */
 function runGame() {
-    displayMessage("Feed me");
     randomiseContentArray(contentArray);
     objectsListen();
     changeArea("start-area", "game-area");
+    displayMessage("Feed me", "game-area-message");
 }
 
 /**
@@ -249,7 +252,7 @@ function checkChoice() {
  */
 function positiveChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/mouse.webp')";
-    displayMessage("Excellent");
+    displayMessage("Excellent", "game-area-message");
     incrementScore();
     countTries();
     checkValues();
@@ -261,7 +264,7 @@ function positiveChoice(indexNum) {
  */
 function negativeChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/empty.webp')";
-    displayMessage("Don't worry");
+    displayMessage("Don't worry", "game-area-message");
     countTries();
     checkValues();
 }
@@ -269,8 +272,8 @@ function negativeChoice(indexNum) {
 /**
  * Displays message to the user, after each choice
  */
-function displayMessage(message) {
-    document.getElementById("game-area-message").innerHTML = message + ', ' + username + '!';
+function displayMessage(message, id) {
+    document.getElementById(id).innerHTML = message + ', ' + username + '!';
 }
 
 /**
@@ -299,10 +302,12 @@ function countTries() {
  * or the score equals six
  */
 function checkValues() {
-    if (tryCount.innerHTML === "0") {
+    if (parseInt(tryCount.innerHTML) === 0) {
+        objectsReset();
         countResult();
-    } else if (currentScore.innerHTML === "6") {
-        displayWin();
+    } else if (parseInt(currentScore.innerHTML) === 6) {
+        objectsReset();
+        window.setTimeout(displayWin, 1500);
     }
 }
 
@@ -311,21 +316,45 @@ function checkValues() {
  * calls next functions to display the result to the user
  */
 function countResult() {
-    let winValue = 6;
+    let winValue = 5;
     let userScore = parseInt(currentScore.innerHTML);
     if (userScore === winValue) {
-        displayWin();
+        window.setTimeout(displayWin, 1500);
     } else if (userScore < winValue) {
-        displayLoss();
+        window.setTimeout( displayLoss, 1500);
     } else {
         alert("Invalid user score");
     }
 }
 
+/**
+ * Takes the user to the result area, shows the happy character,
+ * displays the message and the total score
+ */
 function displayWin() {
-    console.log("displayWin function called");
+    changeArea("game-area", "result-area");
+    resultCharacter.style.backgroundImage = characterArray[character].happy;
+    displayMessage("Well done", "result-area-message");
+    totalScore.innerHTML = currentScore.innerHTML;
 }
 
+/**
+ * Takes the user to the result area, shows the sad character,
+ * displays the message and the total score
+ */
 function displayLoss() {
-    console.log("displayLoss function called");
+    changeArea("game-area", "result-area");
+    resultCharacter.style.backgroundImage = characterArray[character].sad;
+    displayMessage("Better luck next time", "result-area-message");
+    totalScore.innerHTML = currentScore.innerHTML;
 }
+
+/**
+ * Removes event listeners from objects
+ */
+function objectsReset() {
+    for (let object of objectsArray) {
+        object.removeEventListener("click", checkChoice);
+    }
+}
+

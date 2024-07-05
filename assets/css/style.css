@@ -85,6 +85,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     flex-shrink: 0;
     background-size: cover;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 #grey {
@@ -145,7 +146,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     justify-content: center;
 }
 
-.game-area-character {
+#game-area-character {
     margin: 10px;
     width: 80px;
     height: 120px;
@@ -226,7 +227,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 /* Displayed character */
-.result-area-character {
+#result-area-character {
     margin: 10px auto;
     width: 200px;
     height: 300px;
@@ -307,7 +308,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     
     /* Game area */
     /* Informative part */
-    .game-area-character {
+    #game-area-character {
         width: 120px;
         height: 180px;
     }
@@ -334,7 +335,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     }
 
     /* Result area */
-    .result-area-character {
+    #result-area-character {
         width: 200px;
         height: 300px;
     }
@@ -374,7 +375,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         justify-content: space-between;
     }
 
-    .game-area-character {
+    #game-area-character {
         width: 180px;
         height: 240px;
         margin-right: 80px;
@@ -384,13 +385,14 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     .counts-parent {
         height: fit-content;
         align-self: center;
+        min-width: 300px;
     }
 
     /* Score & Tries */
     .counts-box {
         display: flex;
         flex-direction: column;
-        left: 130px;
+        left: 180px;
         top: -285px;
         right: -60px;
     }
@@ -411,7 +413,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         justify-content: center;
     }
 
-    .result-area-character {
+    #result-area-character {
         width: 280px;
         height: 420px;
         margin: 0 20px;
