@@ -127,7 +127,8 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     background-color: #fff;
     border: 2px solid #BD6E2A;
     box-shadow: #221916 2px 2px 2px;
-    color: #BD6E2A;
+    color: #221916;
+    text-shadow: #BD6E2A 1px 1px 1px;
     font-weight: bold;
     cursor: pointer;
     min-width: 120px;
@@ -197,7 +198,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 
 /* Game field */
 .game-field-background {
-    background-color: #f0c694;
+    background-color: #f0c794;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -348,6 +349,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     .btn:hover {
         background-color: #BD6E2A;
         color: #fff;
+        text-shadow: #221916 1px 1px 1px;
         border: 2px solid #BD6E2A;
     }
 }

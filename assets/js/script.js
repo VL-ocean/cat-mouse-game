@@ -87,13 +87,11 @@ function buttonReact() {
             } else if (this.id === "restart-game") {
                 restartGame("game-area", "game-area");
             } else if (this.id === "exit-game") {
-                exitGame("game-area", "start-area")
-                console.log("calls exit function");
+                exitGame("game-area", "start-area");
             } else if (this.id === "restart-result") {
                 restartGame("result-area", "game-area");
             } else if (this.id === "exit-result") {
-                exitGame("result-area", "start-area")
-                console.log("calls exit function");
+                exitGame("result-area", "start-area");
             } else {
                 alert("unknown button id");
             }
@@ -110,12 +108,15 @@ function characterListen() {
         option.addEventListener("click", function() {
             if (this.id === "grey") {
                 borderChange(this);
+                catSound.play();
                 character = 0;
             } else if (this.id === "orange") {
                 borderChange(this);
+                catSound.play();
                 character = 1;
             } else if (this.id === "spot") {
                 borderChange(this);
+                catSound.play();
                 character = 2;
             } else {
                 alert("unknown character id");
@@ -412,3 +413,25 @@ function exitGame(a, b) {
     changeArea(a, b);
 }
 
+// Sound effects
+let catSound = new sound("./assets/audio/cat-sound.wav");
+
+
+// The source https://www.w3schools.com/graphics/game_sound.asp
+/**
+ * Creates a new object constructor to handle sound objects
+ */
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}

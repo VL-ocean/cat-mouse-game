@@ -162,8 +162,10 @@ Click | Open | &check;
     - [Adobe Color Contrast Checker](https://color.adobe.com/create/color-contrast-analyzer) - This tool was used to check contrast for text and background colors.
     - [hex to rgba](https://rgbacolorpicker.com/hex-to-rgba) - This tool was used to convert hex value of color into rgba, for the form on the tablet layout.
 
-  - ### Photos
+  - ### Media
     - [Favicon](https://www.favicon.cc/) - The tool was used to create a favicon.
+    - [Mixkit](https://mixkit.co/) - Soundtracks and background music.
+
 
   - ### Text content
 
