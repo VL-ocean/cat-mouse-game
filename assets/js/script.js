@@ -86,13 +86,13 @@ function buttonReact() {
                 startGame();
             } else if (this.id === "restart-game") {
                 restartGame("game-area", "game-area");
-                console.log("calls restart function");
             } else if (this.id === "exit-game") {
+                exitGame("game-area", "start-area")
                 console.log("calls exit function");
             } else if (this.id === "restart-result") {
                 restartGame("result-area", "game-area");
-                console.log("calls restart function");
             } else if (this.id === "exit-result") {
+                exitGame("result-area", "start-area")
                 console.log("calls exit function");
             } else {
                 alert("unknown button id");
@@ -125,16 +125,23 @@ function characterListen() {
 }
 
 /**
- * Removes border from all characters,
+ * Calls function to remove borders from all characters,
  * adds border to the last chosen character
  */
 function borderChange(box) {
+    removeCharacterBorders();
+    box.style.border = "2px solid #BD6E2A";
+    box.style.boxShadow = "#221916 2px 2px 2px";
+}
+
+/**
+ * Removes borders from all characters on start area
+ */
+function removeCharacterBorders() {
     for (let i of characters) {
         i.style.border = "none";
         i.style.boxShadow = "none";
     }
-    box.style.border = "2px solid #BD6E2A";
-    box.style.boxShadow = "#221916 2px 2px 2px";
 }
 
 /**
@@ -365,10 +372,12 @@ function objectsReset() {
  * prepares the game area for a new game/round
  */
 function restartGame(a, b) {
+    // reset the game area
     objectsReset();
     currentScore.innerHTML = 0;
     tryCount.innerHTML = 6;
     resetBackground();
+    // move to the game area and start a new game/round
     runGame(a, b);
 }
 
@@ -379,5 +388,27 @@ function resetBackground() {
     for (let object of objectsArray) {
         object.style.backgroundImage = "url('./assets/images/door.webp')";
     }
+}
+
+/**
+ * Reacts to user`s click on exit button,
+ * takes the user to the start area,
+ * resets username and character,
+ * resets the game area
+ */
+function exitGame(a, b) {
+    // reset the username
+    username = "";
+    document.getElementById('username').value = "";
+    // reset the character
+    character = 3;
+    removeCharacterBorders();
+    // reset the game area
+    objectsReset();
+    currentScore.innerHTML = 0;
+    tryCount.innerHTML = 6;
+    resetBackground();
+    // move to the start area
+    changeArea(a, b);
 }
 
