@@ -314,7 +314,7 @@ function checkValues() {
     if (parseInt(tryCount.innerHTML) === 0) {
         objectsReset();
         countResult();
-    } else if (parseInt(currentScore.innerHTML) === 6) {
+    } else if (parseInt(currentScore.innerHTML) === 5) {
         objectsReset();
         window.setTimeout(displayWin, 1500);
     }
