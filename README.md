@@ -2,7 +2,7 @@
 
 Small description
 
-Live link [`Mice hunting`](link to the website)
+Live link [`Mice hunting`](https://vl-ocean.github.io/mice-huntung/)
 
 ## User Experience (UX)
 
@@ -130,7 +130,7 @@ Click | Open | &check;
       - Under "Source", click the dropdown called "None" and select "Master Branch".
       - The page will automatically refresh.
       - Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
-      - live link for the page can be found here [Mice hunting](https://vl-ocean.github.io/)
+      - live link for the page can be found here [Mice hunting](https://vl-ocean.github.io/mice-huntung/)
 - ### Forking the GitHub Repository
     - By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps
      - Log in to GitHub and locate the GitHub Repository
