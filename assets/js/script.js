@@ -85,10 +85,12 @@ function buttonReact() {
             if(this.id === "start") {
                 startGame();
             } else if (this.id === "restart-game") {
+                restartGame("game-area", "game-area");
                 console.log("calls restart function");
             } else if (this.id === "exit-game") {
                 console.log("calls exit function");
             } else if (this.id === "restart-result") {
+                restartGame("result-area", "game-area");
                 console.log("calls restart function");
             } else if (this.id === "exit-result") {
                 console.log("calls exit function");
@@ -146,7 +148,7 @@ function startGame() {
     if (validUsername) {
         assignedCharacter = assignCharacter();
         if (assignedCharacter) {
-            runGame();
+            runGame("start-area", "game-area");
         }
     }
 }
@@ -189,10 +191,10 @@ function assignCharacter() {
 /**
  * The function prepares the game area, the clickable objects and the contentArray
  */
-function runGame() {
+function runGame(a, b) {
     randomiseContentArray(contentArray);
     objectsListen();
-    changeArea("start-area", "game-area");
+    changeArea(a, b);
     displayMessage("Feed me", "game-area-message");
 }
 
@@ -355,6 +357,27 @@ function displayLoss() {
 function objectsReset() {
     for (let object of objectsArray) {
         object.removeEventListener("click", checkChoice);
+    }
+}
+
+/**
+ * Reacts to user`s click on restart and play again buttons,
+ * prepares the game area for a new game/round
+ */
+function restartGame(a, b) {
+    objectsReset();
+    currentScore.innerHTML = 0;
+    tryCount.innerHTML = 6;
+    resetBackground();
+    runGame(a, b);
+}
+
+/**
+ * Removes event listeners from all boxes
+ */
+function resetBackground() {
+    for (let object of objectsArray) {
+        object.style.backgroundImage = "url('./assets/images/door.webp')";
     }
 }
 
