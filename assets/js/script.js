@@ -448,15 +448,16 @@ function sound(src) {
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
+    this.sound.setAttribute("muted", "true");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
         this.sound.play();
-    }
+    };
     this.stop = function(){
         this.sound.pause();
         this.sound.currentTime = "0"; //resets the paused audio time to the beginning
-    }
+    };
 }
 
 /**
@@ -468,4 +469,15 @@ function stopSounds() {
     openDoor.stop();
     winSound.stop();
     loseSound.stop();
+}
+
+function muteAudioControl() {
+    const allAudios = document.getElementsByTagName("audio");
+    for (let audio of allAudios) {
+        if (audio.muted) {
+            audio.muted = false;
+        } else if (audio.muted === false) {
+            audio.muted = true;
+        }
+    }
 }

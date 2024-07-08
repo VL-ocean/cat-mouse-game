@@ -14,13 +14,29 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 /* Game title */
+.title-box {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .title {
-    margin: 20px;
+    margin: 20px auto;
     color: #BD6E2A;
     text-align: center;
     font-family: Caudex, sans-serif;
     font-size: 40px;
     text-shadow: #221916 2px -2px 2px;
+}
+
+.icon {
+    font-size: 36px;
+    color: #BD6E2A;
+    text-shadow: #221916 1px -1px 1px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 /* Start area */
@@ -268,6 +284,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         font-size: 60px;
     }
 
+    .icon {
+        font-size: 50px;
+        margin-right: 20px;
+        text-shadow: #221916 1px -1px 2px;
+    }
+
     /* Start area */
     .area {
         max-width: 700px;
@@ -341,10 +363,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         width: 200px;
         height: 300px;
     }
+
 }
 
 /* Desktop and laptop screens (992px and up) */
 @media screen and (min-width: 992px) {
+
     /* Buttons */
     .btn:hover {
         background-color: #BD6E2A;
@@ -352,10 +376,17 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         text-shadow: #221916 1px 1px 1px;
         border: 2px solid #BD6E2A;
     }
+
 }
 
 /* Desktop and laptop screens (1024px and up) */
 @media screen and (min-width: 1024px) {
+
+    /* Game title */
+    .title-box {
+        max-width: 800px;
+    }
+
     /* Start area */
     .area {
         max-width: 800px;
