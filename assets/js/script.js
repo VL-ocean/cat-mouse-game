@@ -1,7 +1,7 @@
 // Global variables, arrays
 let username = "";
 let character = 3;
-let characterArray = [{
+const characterArray = [{
     name: "grey",
     normal: "url('./assets/images/grey.webp')",
     happy: "url('./assets/images/grey-happy.webp')",
@@ -19,7 +19,7 @@ let characterArray = [{
     happy: "url('./assets/images/spot-happy.webp')",
     sad: "url('./assets/images/spot-sad.webp')",
 }];
-let contentArray = [{
+const contentArray = [{
     type: "mouse",
     value: 1,
 },
@@ -57,13 +57,13 @@ let contentArray = [{
 }];
 
 // Selection of elements from DOM
-let characters = document.getElementsByClassName("character");
-let gameCharacter = document.getElementById("game-area-character");
-let objectsArray = document.getElementsByClassName("object");
-let currentScore = document.getElementById("score");
-let tryCount = document.getElementById("tries");
-let resultCharacter = document.getElementById("result-area-character");
-let totalScore = document.getElementById("total-score");
+const characters = document.getElementsByClassName("character");
+const gameCharacter = document.getElementById("game-area-character");
+const objectsArray = document.getElementsByClassName("object");
+const currentScore = document.getElementById("score");
+const tryCount = document.getElementById("tries");
+const resultCharacter = document.getElementById("result-area-character");
+const totalScore = document.getElementById("total-score");
 
 
 // Once the page loads, add event listeners to buttons and characters
@@ -79,22 +79,27 @@ document.addEventListener("DOMContentLoaded", function() {
  * calls the function according to the id of the button
  */
 function buttonReact() {
-    let btnArray = document.getElementsByTagName('button');
+    const btnArray = document.getElementsByTagName('button');
     for (let button of btnArray) {
         button.addEventListener("click", function() {
             if(this.id === "start") {
+                stopSounds();
                 buttonClick.play();
                 startGame();
             } else if (this.id === "restart-game") {
+                stopSounds();
                 buttonClick.play();
                 restartGame("game-area", "game-area");
             } else if (this.id === "exit-game") {
+                stopSounds();
                 buttonClick.play();
                 exitGame("game-area", "start-area");
             } else if (this.id === "restart-result") {
+                stopSounds();
                 buttonClick.play();
                 restartGame("result-area", "game-area");
             } else if (this.id === "exit-result") {
+                stopSounds();
                 buttonClick.play();
                 exitGame("result-area", "start-area");
             } else {
@@ -113,14 +118,17 @@ function characterListen() {
         option.addEventListener("click", function() {
             if (this.id === "grey") {
                 borderChange(this);
+                stopSounds();
                 catSound.play();
                 character = 0;
             } else if (this.id === "orange") {
                 borderChange(this);
+                stopSounds();
                 catSound.play();
                 character = 1;
             } else if (this.id === "spot") {
                 borderChange(this);
+                stopSounds();
                 catSound.play();
                 character = 2;
             } else {
@@ -171,9 +179,9 @@ function startGame() {
  * and assigns it to username variable
  */
 function validateUsername() {
-    let enteredUsername = document.getElementById('username').value;
+    const enteredUsername = document.getElementById('username').value;
     // The source https://stackoverflow.com/questions/9628879/javascript-regex-username-validation
-    let usernamePattern = /^[a-zA-Z ]+$/;
+    const usernamePattern = /^[a-zA-Z ]+$/;
     if (enteredUsername.length < 1) {
         alert("Please enter your name");
     } else if (enteredUsername.length > 20) {
@@ -192,7 +200,7 @@ function validateUsername() {
  */
 function assignCharacter() {
     if (character < 3) {
-        let chosenCharacter = characterArray[character].normal; 
+        const chosenCharacter = characterArray[character].normal; 
         // The source https://stackoverflow.com/questions/19066638/insert-javascript-variable-as-background-image-source
         gameCharacter.style.backgroundImage = chosenCharacter;
         return true;
@@ -249,9 +257,10 @@ function objectsListen() {
  * checks the user's choice and calls the function to display the outcome
  */
 function checkChoice() {
+    stopSounds();
     openDoor.play();
-    let indexNum = this.getAttribute("data-attr");
-    let choice = contentArray[indexNum].type;
+    const indexNum = this.getAttribute("data-attr");
+    const choice = contentArray[indexNum].type;
     if (choice === "mouse") {
         positiveChoice(indexNum);
     } else if (choice === "empty") {
@@ -297,8 +306,8 @@ function displayMessage(message, id) {
  * and assigns the new number into the score box
  */
 function incrementScore() {
-    let oldScore = parseInt(currentScore.innerHTML);
-    let newScore = ++oldScore;
+    const oldScore = parseInt(currentScore.innerHTML);
+    const newScore = oldScore + 1;
     currentScore.innerHTML = newScore;
 }
 
@@ -307,8 +316,8 @@ function incrementScore() {
  * and assigns the new number into its box
  */
 function countTries() {
-    let oldAmount = parseInt(tryCount.innerHTML);
-    let newAmount = --oldAmount;
+    const oldAmount = parseInt(tryCount.innerHTML);
+    const newAmount = oldAmount - 1;
     tryCount.innerHTML = newAmount;
 }
 
@@ -332,12 +341,12 @@ function checkValues() {
  * calls next functions to display the result to the user
  */
 function countResult() {
-    let winValue = 5;
-    let userScore = parseInt(currentScore.innerHTML);
+    const winValue = 5;
+    const userScore = parseInt(currentScore.innerHTML);
     if (userScore === winValue) {
-        window.setTimeout(displayWin, 1500);
+        window.setTimeout(displayWin, 1400);
     } else if (userScore < winValue) {
-        window.setTimeout( displayLoss, 1500);
+        window.setTimeout( displayLoss, 1400);
     } else {
         alert("Invalid user score");
     }
@@ -349,6 +358,7 @@ function countResult() {
  */
 function displayWin() {
     changeArea("game-area", "result-area");
+    stopSounds();
     winSound.play();
     resultCharacter.style.backgroundImage = characterArray[character].happy;
     displayMessage("Well done", "result-area-message");
@@ -361,6 +371,7 @@ function displayWin() {
  */
 function displayLoss() {
     changeArea("game-area", "result-area");
+    stopSounds();
     loseSound.play();
     resultCharacter.style.backgroundImage = characterArray[character].sad;
     displayMessage("Better luck next time", "result-area-message");
@@ -422,27 +433,39 @@ function exitGame(a, b) {
 }
 
 // Sound effects
-let buttonClick = new sound("./assets/audio/button-click.wav");
-let catSound = new sound("./assets/audio/cat-sound.wav");
-let openDoor = new sound ("./assets/audio/open-door-short.wav");
-let winSound = new sound("./assets/audio/win-game.wav");
-let loseSound = new sound("./assets/audio/lose-game.wav");
+const buttonClick = new sound("./assets/audio/button-click.wav");
+const catSound = new sound("./assets/audio/cat-sound.wav");
+const openDoor = new sound ("./assets/audio/open-door-short.wav");
+const winSound = new sound("./assets/audio/win-game.wav");
+const loseSound = new sound("./assets/audio/lose-game.wav");
 
 // The source https://www.w3schools.com/graphics/game_sound.asp
 /**
  * Creates a new object constructor to handle sound objects
  */
 function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
-  }
-  this.stop = function(){
-    this.sound.pause();
-  }
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+        this.sound.currentTime = "0"; //resets the paused audio time to the beginning
+    }
+}
+
+/**
+ * Stops all the audios and resets them
+ */
+function stopSounds() {
+    buttonClick.stop();
+    catSound.stop();
+    openDoor.stop();
+    winSound.stop();
+    loseSound.stop();
 }

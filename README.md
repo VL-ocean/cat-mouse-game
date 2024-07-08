@@ -165,6 +165,7 @@ Click | Open | &check;
   - ### Media
     - [Favicon](https://www.favicon.cc/) - The tool was used to create a favicon.
     - [Mixkit](https://mixkit.co/) - Soundtracks and background music.
+    - [Audio Trimmer](https://audiotrimmer.com/) - Cut soundtracks.
 
 
   - ### Text content
