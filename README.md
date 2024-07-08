@@ -168,9 +168,9 @@ Click | Open | &check;
     - [Mixkit](https://mixkit.co/) - Soundtracks and background music.
     - [Audio Trimmer](https://audiotrimmer.com/) - Cut soundtracks.
 
-
-  - ### Text content
-
+  - ### Illustrations
+    - The illustrations were drawn by hand and digitalized. The author - my sister, Anastasiia.
+    
   - ### Acknowledgment
     - [Cohort Facilitator - Marko Tot](https://github.com/tmarkec) for support in the classroom and guidance through the course.
     - [Mentor - Dick Vlaanderen](https://github.com/dickvla) for support throughout the project, ideas and advice.

@@ -69,6 +69,7 @@ const resultCharacter = document.getElementById("result-area-character");
 const totalScore = document.getElementById("total-score");
 const soundOnIcon = document.getElementById("sound-on");
 const soundOffIcon = document.getElementById("sound-off");
+const icons = document.getElementsByClassName("icon");
 
 // Once the page loads, add event listeners to buttons, characters and mute icon
 document.addEventListener("DOMContentLoaded", function() {
@@ -83,9 +84,10 @@ document.addEventListener("DOMContentLoaded", function() {
  * Adds Event Listener to all buttons
  */
 function buttonListen() {
-    for (let button of btnArray) {
-        button.addEventListener("click", buttonReact);
-    }
+    const tempArray = Array.from(btnArray);
+    tempArray.forEach((element) => {
+        element.addEventListener("click", buttonReact);
+    });
 }
 
 /**
@@ -121,9 +123,10 @@ function buttonReact() {
  * Adds Event Listener to characters on start area
  */
 function characterListen() {
-    for (let option of characters) {
-        option.addEventListener("click", chooseCharacter);
-    }
+    const tempArray = Array.from(characters);
+    tempArray.forEach((element) => {
+        element.addEventListener("click", chooseCharacter);
+    });
 }
 
 /**
@@ -164,10 +167,11 @@ function borderChange(box) {
  * Removes borders from all characters on start area
  */
 function removeCharacterBorders() {
-    for (let i of characters) {
-        i.style.border = "none";
-        i.style.boxShadow = "none";
-    }
+    const tempArray = Array.from(characters);
+    tempArray.forEach((element) => {
+        element.style.border = "none";
+        element.style.boxShadow = "none";
+    });
 }
 
 /**
@@ -256,11 +260,12 @@ function randomiseContentArray(array) {
  * Adds event listeners to objects, works once
  */
 function objectsListen() {
-    for (let object of objectsArray) {
-        object.addEventListener("click", checkChoice, {
+    const tempArray = Array.from(objectsArray);
+    tempArray.forEach((element) => {
+        element.addEventListener("click", checkChoice, {
             once: true,
         });
-    }
+    });
 }
 
 /**
@@ -356,9 +361,9 @@ function countResult() {
     const winValue = 5;
     const userScore = parseInt(currentScore.innerHTML);
     if (userScore === winValue) {
-        window.setTimeout(displayWin, 1400);
+        window.setTimeout(displayWin, 1300);
     } else if (userScore < winValue) {
-        window.setTimeout( displayLoss, 1400);
+        window.setTimeout( displayLoss, 1300);
     } else {
         alert("Invalid user score");
     }
@@ -394,9 +399,10 @@ function displayLoss() {
  * Removes event listeners from objects
  */
 function objectsReset() {
-    for (let object of objectsArray) {
-        object.removeEventListener("click", checkChoice);
-    }
+    const tempArray = Array.from(objectsArray);
+    tempArray.forEach((element) => {
+        element.removeEventListener("click", checkChoice);
+    });
 }
 
 /**
@@ -417,9 +423,10 @@ function restartGame(a, b) {
  * Removes event listeners from all boxes
  */
 function resetBackground() {
-    for (let object of objectsArray) {
-        object.style.backgroundImage = "url('./assets/images/door.webp')";
-    }
+    const tempArray = Array.from(objectsArray);
+    tempArray.forEach((element) => {
+        element.style.backgroundImage = "url('./assets/images/door.webp')";
+    });
 }
 
 /**
@@ -488,18 +495,18 @@ function stopSounds() {
  * turns the sound on if it was off, and conversely
  */
 function muteAudioControl() {
-    const allAudios = document.getElementsByTagName("audio");
-    for (let audio of allAudios) {
-        if (audio.muted) {
+    const allAudios = Array.from(document.getElementsByTagName("audio"));
+    allAudios.forEach((element) => {
+        if (element.muted) {
             soundOffIcon.style.display = "none";
             soundOnIcon.style.display = "var(--fa-display, inline-block)";
-            audio.muted = false;
+            element.muted = false;
         } else {
             soundOnIcon.style.display = "none";
             soundOffIcon.style.display = "var(--fa-display, inline-block)";
-            audio.muted = true;
+            element.muted = true;
         }
-    }
+    });
 }
 
 /**
@@ -507,8 +514,8 @@ function muteAudioControl() {
  * calls the function to change it once it is clicked
  */
 function listenAudioControl() {
-    const icons = document.getElementsByClassName("icon");
-    for (let icon of icons) {
-        icon.addEventListener("click", muteAudioControl);
-    }
+    const tempArray = Array.from(icons);
+    tempArray.forEach((element) => {
+        element.addEventListener("click", muteAudioControl);
+    });
 }
