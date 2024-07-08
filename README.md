@@ -161,6 +161,7 @@ Click | Open | &check;
     - [ColorSpace](https://mycolor.space/) - This tool was used to find the most suitable colors for the design.
     - [Adobe Color Contrast Checker](https://color.adobe.com/create/color-contrast-analyzer) - This tool was used to check contrast for text and background colors.
     - [hex to rgba](https://rgbacolorpicker.com/hex-to-rgba) - This tool was used to convert hex value of color into rgba, for the form on the tablet layout.
+    - [Font Awesome](https://fontawesome.com/) - The icons are taken from this library.
 
   - ### Media
     - [Favicon](https://www.favicon.cc/) - The tool was used to create a favicon.

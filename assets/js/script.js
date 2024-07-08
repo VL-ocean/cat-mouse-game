@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Global variables, arrays
 let username = "";
 let character = 3;
@@ -57,6 +59,7 @@ const contentArray = [{
 }];
 
 // Selection of elements from DOM
+const btnArray = document.getElementsByTagName('button');
 const characters = document.getElementsByClassName("character");
 const gameCharacter = document.getElementById("game-area-character");
 const objectsArray = document.getElementsByClassName("object");
@@ -69,7 +72,7 @@ const soundOffIcon = document.getElementById("sound-off");
 
 // Once the page loads, add event listeners to buttons, characters and mute icon
 document.addEventListener("DOMContentLoaded", function() {
-    buttonReact();
+    buttonListen();
     characterListen();
     listenAudioControl();
 });
@@ -77,66 +80,73 @@ document.addEventListener("DOMContentLoaded", function() {
 // Functions
 
 /**
- * Adds Event Listener to all buttons, 
- * calls the function according to the id of the button
+ * Adds Event Listener to all buttons
  */
-function buttonReact() {
-    const btnArray = document.getElementsByTagName('button');
+function buttonListen() {
     for (let button of btnArray) {
-        button.addEventListener("click", function() {
-            if(this.id === "start") {
-                stopSounds();
-                buttonClick.play();
-                startGame();
-            } else if (this.id === "restart-game") {
-                stopSounds();
-                buttonClick.play();
-                restartGame("game-area", "game-area");
-            } else if (this.id === "exit-game") {
-                stopSounds();
-                buttonClick.play();
-                exitGame("game-area", "start-area");
-            } else if (this.id === "restart-result") {
-                stopSounds();
-                buttonClick.play();
-                restartGame("result-area", "game-area");
-            } else if (this.id === "exit-result") {
-                stopSounds();
-                buttonClick.play();
-                exitGame("result-area", "start-area");
-            } else {
-                alert("unknown button id");
-            }
-        });
+        button.addEventListener("click", buttonReact);
     }
 }
 
 /**
- * Adds Event Listener to characters on start area, 
- * assigns index to character variable to use characterArray later
+ * Calls the function according to the id of the button
+ */
+function buttonReact() {
+    if(this.id === "start") {
+        stopSounds();
+        buttonClick.play();
+        startGame();
+    } else if (this.id === "restart-game") {
+        stopSounds();
+        buttonClick.play();
+        restartGame("game-area", "game-area");
+    } else if (this.id === "exit-game") {
+        stopSounds();
+        buttonClick.play();
+        exitGame("game-area", "start-area");
+    } else if (this.id === "restart-result") {
+        stopSounds();
+        buttonClick.play();
+        restartGame("result-area", "game-area");
+    } else if (this.id === "exit-result") {
+        stopSounds();
+        buttonClick.play();
+        exitGame("result-area", "start-area");
+    } else {
+        alert("unknown button id");
+    }
+}
+
+/**
+ * Adds Event Listener to characters on start area
  */
 function characterListen() {
     for (let option of characters) {
-        option.addEventListener("click", function() {
-            if (this.id === "grey") {
-                borderChange(this);
-                stopSounds();
-                catSound.play();
-                character = 0;
-            } else if (this.id === "orange") {
-                borderChange(this);
-                stopSounds();
-                catSound.play();
-                character = 1;
-            } else if (this.id === "spot") {
-                borderChange(this);
-                stopSounds();
-                catSound.play();
-                character = 2;
-            } else {
-                alert("unknown character id");
-            }
-        });
+        option.addEventListener("click", chooseCharacter);
+    }
+}
+
+/**
+ * Assigns index to character variable to use characterArray later
+ */
+function chooseCharacter() {
+    if (this.id === "grey") {
+        borderChange(this);
+        stopSounds();
+        catSound.play();
+        character = 0;
+    } else if (this.id === "orange") {
+        borderChange(this);
+        stopSounds();
+        catSound.play();
+        character = 1;
+    } else if (this.id === "spot") {
+        borderChange(this);
+        stopSounds();
+        catSound.play();
+        character = 2;
+    } else {
+        alert("unknown character id");
     }
 }
 
@@ -249,7 +259,7 @@ function objectsListen() {
     for (let object of objectsArray) {
         object.addEventListener("click", checkChoice, {
             once: true,
-          });
+        });
     }
 }
 
