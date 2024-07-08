@@ -83,14 +83,19 @@ function buttonReact() {
     for (let button of btnArray) {
         button.addEventListener("click", function() {
             if(this.id === "start") {
+                buttonClick.play();
                 startGame();
             } else if (this.id === "restart-game") {
+                buttonClick.play();
                 restartGame("game-area", "game-area");
             } else if (this.id === "exit-game") {
+                buttonClick.play();
                 exitGame("game-area", "start-area");
             } else if (this.id === "restart-result") {
+                buttonClick.play();
                 restartGame("result-area", "game-area");
             } else if (this.id === "exit-result") {
+                buttonClick.play();
                 exitGame("result-area", "start-area");
             } else {
                 alert("unknown button id");
@@ -244,6 +249,7 @@ function objectsListen() {
  * checks the user's choice and calls the function to display the outcome
  */
 function checkChoice() {
+    openDoor.play();
     let indexNum = this.getAttribute("data-attr");
     let choice = contentArray[indexNum].type;
     if (choice === "mouse") {
@@ -343,6 +349,7 @@ function countResult() {
  */
 function displayWin() {
     changeArea("game-area", "result-area");
+    winSound.play();
     resultCharacter.style.backgroundImage = characterArray[character].happy;
     displayMessage("Well done", "result-area-message");
     totalScore.innerHTML = currentScore.innerHTML;
@@ -354,6 +361,7 @@ function displayWin() {
  */
 function displayLoss() {
     changeArea("game-area", "result-area");
+    loseSound.play();
     resultCharacter.style.backgroundImage = characterArray[character].sad;
     displayMessage("Better luck next time", "result-area-message");
     totalScore.innerHTML = currentScore.innerHTML;
@@ -414,8 +422,11 @@ function exitGame(a, b) {
 }
 
 // Sound effects
+let buttonClick = new sound("./assets/audio/button-click.wav");
 let catSound = new sound("./assets/audio/cat-sound.wav");
-
+let openDoor = new sound ("./assets/audio/open-door-short.wav");
+let winSound = new sound("./assets/audio/win-game.wav");
+let loseSound = new sound("./assets/audio/lose-game.wav");
 
 // The source https://www.w3schools.com/graphics/game_sound.asp
 /**
