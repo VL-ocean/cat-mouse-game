@@ -64,12 +64,14 @@ const currentScore = document.getElementById("score");
 const tryCount = document.getElementById("tries");
 const resultCharacter = document.getElementById("result-area-character");
 const totalScore = document.getElementById("total-score");
+const soundOnIcon = document.getElementById("sound-on");
+const soundOffIcon = document.getElementById("sound-off");
 
-
-// Once the page loads, add event listeners to buttons and characters
+// Once the page loads, add event listeners to buttons, characters and mute icon
 document.addEventListener("DOMContentLoaded", function() {
     buttonReact();
     characterListen();
+    listenAudioControl();
 });
 
 // Functions
@@ -448,7 +450,7 @@ function sound(src) {
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
-    this.sound.setAttribute("muted", "true");
+    this.sound.muted = "true"; // the sound is mute by default
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
@@ -471,13 +473,32 @@ function stopSounds() {
     loseSound.stop();
 }
 
+/**
+ * Controls the mute button display, 
+ * turns the sound on if it was off, and conversely
+ */
 function muteAudioControl() {
     const allAudios = document.getElementsByTagName("audio");
     for (let audio of allAudios) {
         if (audio.muted) {
+            soundOffIcon.style.display = "none";
+            soundOnIcon.style.display = "var(--fa-display, inline-block)";
             audio.muted = false;
-        } else if (audio.muted === false) {
+        } else {
+            soundOnIcon.style.display = "none";
+            soundOffIcon.style.display = "var(--fa-display, inline-block)";
             audio.muted = true;
         }
+    }
+}
+
+/**
+ * Adds event listeners to the mute buttons,
+ * calls the function to change it once it is clicked
+ */
+function listenAudioControl() {
+    const icons = document.getElementsByClassName("icon");
+    for (let icon of icons) {
+        icon.addEventListener("click", muteAudioControl);
     }
 }

@@ -31,12 +31,20 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     text-shadow: #221916 2px -2px 2px;
 }
 
+.icon-box {
+    width: 45px;
+    margin-right: 3vw;
+}
+
 .icon {
     font-size: 36px;
     color: #BD6E2A;
-    text-shadow: #221916 1px -1px 1px;
-    margin-right: 10px;
     cursor: pointer;
+    text-shadow: #221916 1px -1px 1px;
+}
+
+#sound-on {
+    display: none;
 }
 
 /* Start area */
@@ -284,9 +292,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
         font-size: 60px;
     }
 
+    .icon-box {
+        width: 63px;
+    }
+
     .icon {
         font-size: 50px;
-        margin-right: 20px;
         text-shadow: #221916 1px -1px 2px;
     }
 
