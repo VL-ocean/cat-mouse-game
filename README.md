@@ -37,11 +37,18 @@ GitHub is used to store the project's code after being pushed from Git.
 Gitpod was used as a platform to develop code in a ready-to-code developer environment.
  - #### [Balsamic](https://balsamiq.com/)
 Balsamiq was used to create the wireframes during the design process
-
-![Balsamic image](./README-images)
-![Balsamic image](./README-images)
-![Balsamic image](./README-images)
-
+   - Mobile layout
+     - [Start area](./README-images/mobile-start-area.png)
+     - [Game area](./README-images/mobile-game-area.png)
+     - [Result area](./README-images/mobile-result-area.png)
+   - Tablet layout
+     - [Start area](./README-images/tablet-start-area.png)
+     - [Game area](./README-images/tablet-game-area.png)
+     - [Result area](./README-images/tablet-result-area.png)
+   - Desktop layout
+     - [Start area](./README-images/desktop-start-area.png)
+     - [Game area](./README-images/desktop-game-area.png)
+     - [Result area](./README-images/desktop-result-area.png)
 
 ## Existing Features 
 .
