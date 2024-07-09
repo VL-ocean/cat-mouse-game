@@ -219,9 +219,23 @@ function assignCharacter() {
         const chosenCharacter = characterArray[character].normal; 
         // The source https://stackoverflow.com/questions/19066638/insert-javascript-variable-as-background-image-source
         gameCharacter.style.backgroundImage = chosenCharacter;
+        ariaLabelDisplay();
         return true;
     } else {
         alert("Please choose a character");
+    }
+}
+
+/**
+ * Displays the matching aria label for the chosen character
+ */
+function ariaLabelDisplay() {
+    if (character === 0) {
+        gameCharacter.ariaLabel = "grey cat";
+    } else if (character === 1) {
+        gameCharacter.ariaLabel = "orange cat";
+    } else {
+        gameCharacter.ariaLabel = "white cat with grey and orange spots";
     }
 }
 
@@ -294,6 +308,7 @@ function checkChoice() {
  */
 function positiveChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/mouse.webp')";
+    objectsArray[indexNum].ariaLabel = "mouse";
     displayMessage("Excellent", "game-area-message");
     incrementScore();
     countTries();
@@ -306,6 +321,7 @@ function positiveChoice(indexNum) {
  */
 function negativeChoice(indexNum) {
     objectsArray[indexNum].style.backgroundImage = "url('./assets/images/empty.webp')";
+    objectsArray[indexNum].ariaLabel = "empty";
     displayMessage("Don't worry", "game-area-message");
     countTries();
     checkValues();
@@ -378,6 +394,7 @@ function displayWin() {
     stopSounds();
     winSound.play();
     resultCharacter.style.backgroundImage = characterArray[character].happy;
+    resultCharacter.ariaLabel = "happy cat";
     displayMessage("Well done", "result-area-message");
     totalScore.innerHTML = currentScore.innerHTML;
 }
@@ -391,6 +408,7 @@ function displayLoss() {
     stopSounds();
     loseSound.play();
     resultCharacter.style.backgroundImage = characterArray[character].sad;
+    resultCharacter.ariaLabel = "sad cat";
     displayMessage("Better luck next time", "result-area-message");
     totalScore.innerHTML = currentScore.innerHTML;
 }

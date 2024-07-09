@@ -283,6 +283,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     margin: 0 10px;
 }
 
+/* 404 page */
+a {
+    text-decoration: none;
+}
 
 /* Tablets (768px and up) */
 @media screen and (min-width: 768px) {
