@@ -85,14 +85,33 @@ The game has three areas: start area, game area and result area. The [start area
 ![start button with hover effect](./README-images/start-game-button-hover.png) 
  #### Once the user is ready, he can click on the button and if the name and character are selected, the game begins.
 
-  - ### 
-![](./README-images) 
- #### 
+  - ### Game area information display
+![info](./README-images/game-area-info.png) 
+ #### It includes the selected character picture, the score and the number of attempts. It also displays a message.
+
+  - ### Game field
+![game field](./README-images/game-field.png) 
+ #### The interactive part of the game. Every door is clickable. The expected output is either a mouse or an empty space. There are always 6 mice and 3 empty spaces. The order changes for every game/round.
+
+  - ### Restart/Play again buttons
+![restart button](./README-images/restart.png) 
+![play again button](./README-images/play-again.png)
+ #### Both buttons provide the same functionality. It takes the user to a new game area which is ready to play another round.
+
+  - ### Result area information display
+![result info](./README-images/result-area-info.png) 
+ #### It includes the selected character picture either happy or sad, the total score and a message.
+
+  - ### Exit button
+![exit button](./README-images/exit.png) 
+ #### This button at game area and at result area provides the same functionality. It takes the user to the start area, it refreshes the username and character. The game can be started again, once the player is ready.
 
 
 ## Future features 
-- Customized messages for game and result areas
-- Bonus level
+- A wider variety of messages 
+- Animation for the game field and characters
+- A wider selection of characters
+- Bonus level 
 - Score board
 
 ## Testing  
@@ -113,7 +132,7 @@ Screen resolution | Pass
 ![Responsice Mockup](./README-images/responsive.png)
 
 ### Supported browsers
-The website was tested on the following browsers and is working well:
+The game was tested on the following browsers and is working well:
 
 Browser | Pass
 --- | :---:
@@ -121,7 +140,6 @@ Chrome | &check;
 Opera | &check;
 Firefox | &check;
 Microsoft Edge | &check;
-Savannah | &check;
 
 
 ### Validator Testing 
