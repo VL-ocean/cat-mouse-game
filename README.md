@@ -4,7 +4,7 @@ This is a mini game. You are invited to hunt some mice for dinner. You can choos
 
 Live link [`Mice hunting`](https://vl-ocean.github.io/mice-huntung/)
 
-## [The planning stage (click to view the file)](./README-files/project-2.txt)
+## The planning stage [(click to view the complete file)](./README-files/project-2.txt)
  ### App functionality
 - When planning this project, I described the game as steps which the user follow to play the game. This also includes the structure of the game and what the user can find/see on every area. 
 
@@ -68,7 +68,6 @@ The game has three areas: start area, game area and result area. The [start area
  #### The game name represetns the main game functionality "to hunt the mice".
 
 - ### Sound off / Sound on icons
-
 ![Sound off](./README-images/sound-off.png) 
 ![Sound on](./README-images/sound-on.png) 
  #### It allows the user to control the sounds in the game. The default setting is mute. The user can turn it on by clicking the icon.
@@ -160,6 +159,9 @@ No errors or warnings to show.
 No errors or warnings to show. (Except for the warning about imported Google Fonts "Imported style sheets are not checked in direct input and file upload modes")
   - [Overall result](./README-images/css-validation.png)
   - [Warning](./README-images/css-warning.png)
+- #### JSHint
+No errors or warnings to show. 
+  - [Overall result](./README-images/jshint-validation.png)
 
 ### Accessibility and performance
 Using Google Lighthouse I confirmed that the website is readable and accessible. It performs well.
