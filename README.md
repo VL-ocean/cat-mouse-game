@@ -21,13 +21,8 @@ Live link [`Mice hunting`](https://vl-ocean.github.io/mice-huntung/)
 - It includes the instructions for the game.
 
  ### Design
-- The design is quite simple
-
-- ####  Typography 
-  - .
-
-- ####  Imagery
-   - .
+- Fonts: Caudex, Comfortaa
+- Colors: #BD6E2A orange, #221916 brown, #fff white; ![color](./README-images/color.png)
 
 
 ## Technologies Used 
@@ -71,18 +66,34 @@ The game has three areas: start area, game area and result area. The [start area
 
 ![Sound off](./README-images/sound-off.png) 
 ![Sound on](./README-images/sound-on.png) 
- #### Allows the user to control the sounds in the game. The default setting is mute. The user can turn it on by clicking the icon.
+ #### It allows the user to control the sounds in the game. The default setting is mute. The user can turn it on by clicking the icon.
 
 - ### Username
 ![Username](./README-images/username.png) 
  #### The field to enter the name. It accepts only English letters and spaces. The user is entitled to enter at least one character/space. The maximum characters is set to 20. The entered output is used in messages later in the game and result areas.
 
- - ### Username
-![Username](./README-images/username.png) 
- #### The field to enter the name. It accepts only English letters and spaces. The user is entitled to enter at least one character/space. The maximum characters is set to 20. The entered output is used in messages later in the game and result areas.
+ - ### Choose character
+![characters](./README-images/choose-character.png) 
+ #### The user can choose from 3 characters. When clicking a character, it gets a border to highlight that it has been selected.
+
+  - ### Instructions
+![info](./README-images/instructions.png) 
+ #### The user can read simple rules of the game and understand what to expect at the next area.
+
+  - ### Start game button
+![start button](./README-images/start-game-button.png) 
+![start button with hover effect](./README-images/start-game-button-hover.png) 
+ #### Once the user is ready, he can click on the button and if the name and character are selected, the game begins.
+
+  - ### 
+![](./README-images) 
+ #### 
+
 
 ## Future features 
-- ...
+- Customized messages for game and result areas
+- Bonus level
+- Score board
 
 ## Testing  
 
