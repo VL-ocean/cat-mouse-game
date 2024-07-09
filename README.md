@@ -152,16 +152,16 @@ Microsoft Edge | &check;
 
 ### Validator Testing 
 - #### HTML
-No errors or warnings to show.
-  - [Main page](./README-images/html-validation.png)
-  - [404 page](./README-images/404-html-validation.png)
+  No errors or warnings to show.
+    - [Main page](./README-images/html-validation.png)
+    - [404 page](./README-images/404-html-validation.png)
 - #### CSS
-No errors or warnings to show. (Except for the warning about imported Google Fonts "Imported style sheets are not checked in direct input and file upload modes")
-  - [Overall result](./README-images/css-validation.png)
-  - [Warning](./README-images/css-warning.png)
+   No errors or warnings to show. (Except for the warning about imported Google Fonts "Imported style sheets are not checked in direct input and file upload modes")
+    - [Overall result](./README-images/css-validation.png)
+    - [Warning](./README-images/css-warning.png)
 - #### JSHint
-No errors or warnings to show. 
-  - [Overall result](./README-images/jshint-validation.png)
+  No errors or warnings to show. 
+    - [Overall result](./README-images/jshint-validation.png)
 
 ### Accessibility and performance
 Using Google Lighthouse I confirmed that the website is readable and accessible. It performs well.
@@ -184,10 +184,11 @@ Type in nothing in the username field but choose a character, click on start gam
 Type in numbers in the username field, e.g. "123", click on start game button | Open message "Please use letters only" ([see](./README-images/use-letters.png)) | &check;
 Type in more than 20 characters in the username field, click on start game button | Open message "You can use up to 20 characters only" ([see](./README-images/20-only.png)) | &check;
 Type in the username, e.g. "George", do not select a character, click on start game button | Open message "Please choose a character" ([see](./README-images/no-character-selected.png)) | &check;
-Click on character | Highlight the selected character ([see](./README-images/character-selected.png)) | &check;
-Click on another character | Highlight the clicked character, deselect the previous character | &check;
-Type in the username, e.g. "George", and select a character, e.g. "grey cat", then click on start game button | Open game area. Display grey cat as a character and a message "Feed me, George" ([see](./README-images/feed-me.png)) | &check;
-Click on "Exit" button | Open start area | &check;
+Click on the character at start area | Highlight the selected character ([see](./README-images/character-selected.png)) | &check;
+Click on another character at start area | Highlight the clicked character, deselect the previous character | &check;
+Type in the username, e.g. "George", and select a character, e.g. "grey cat", then click on start game button | Open game area. Display grey cat as a character and the message "Feed me, George" ([see](./README-images/feed-me.png)) | &check;
+Click on "Exit" button at game area | Open start area | &check;
+Click on "Exit" button at result area | Open start area | &check;
 Click on a door | Change image to mouse, increase score by one, reduce tries by one, display message "Excellent, George" | &check;
 Click on a door | Change image to empty, reduce tries by one, display message "Don't worry, George" | &check;
 Use the last try | Display the last choice result, then open result area | &check;
@@ -213,10 +214,15 @@ Click on any button, sound is off | Hear no sound being played | &check;
 ### Fixed Bugs
 
 - The assignCharacter function didn't work properly. The problem was in setting the background-image url and inserting it as a new style for the element. When looking through some tutorials (W3Schools, Stackoverflow), I have realised that I have set it wrong. I changed it to "url(" + chosenCharacter + ")", then I updated url in the object to "url('./assets/images/grey.webp')", so I can use a variable instead of concatenating and it worked perfectly this way.
+
 - All the variables were created using "let". Replaced the permmanent variables with "const".
+
 - Replaced the for..of function to forEach, since it fits the arrays better.
+
 - There is no control over the sound for the user. Added icons at top right corner and muted it by default. Now the user can turn the sound on if wants.
+
 - First two functions which add Event listeners to buttons and characters were too big and shown warnings in JSHint. I divided them into two smaller ones.
+
 - When validating the html, I got the warning ["Possible misuse of aria-label"](./README-images/html-warning.png). The aria-label was used for the div containers which have background images. These images are the main game functionality and the screen reader should see them and identify. The source https://www.w3schools.com/accessibility/accessibility_meaningful_images.php explains how to inform the browser that the particular image is important and should be read by the screen reader. I have added 'role="img"' next to aria-labels created before. No warnings has been discovered since.
 
 ### Unfixed Bugs
