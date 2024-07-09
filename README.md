@@ -1,18 +1,27 @@
-![Responsice Mockup](./README-images)
+This is a mini game. You are invited to hunt some mice for dinner. You can choose a character and enter your name. There are only 6 tries for one game. You should find 5 mice to win. Good luck!
 
-Small description
+![Responsice Mockup](./README-images/start-area.png)
 
 Live link [`Mice hunting`](https://vl-ocean.github.io/mice-huntung/)
 
-## User Experience (UX)
+## [The planning stage (click to view the file)](./README-files/project-2.txt)
+ ### App functionality
+- When planning this project, I described the game as steps which the user follow to play the game. This also includes the structure of the game and what the user can find/see on every area. 
 
- ### User stories
- #### 
-- 
+ ### JavaScript functions
+- It describes how it was planned for the game to work and should be connected using the JavaScript functions.
+
+ ### JavaScript global variables
+- There are few variables that were planned to be global, such as username, characterArray, etc.
+
+ ### Buttons
+- No game can function without the user be able to control it. There are few main buttons, such as start game, restart and exit.
+
+ ### Other
+- It includes the instructions for the game.
 
  ### Design
-- ####  Color Scheme
-  - .
+- The design is quite simple
 
 - ####  Typography 
   - .
@@ -51,20 +60,26 @@ Balsamiq was used to create the wireframes during the design process
      - [Result area](./README-images/desktop-result-area.png)
 
 ## Existing Features 
-.
+The game has three areas: start area, game area and result area. The [start area](./README-images/start-area.png) main functionality is to get the user`s name and remember the selected character. The [game area](./README-images/game-area.png) allows the user to participate in the game by clicking on the doors and opening them. The output is either a mouse or an empty place. The [result area](./README-images/result-area.png) is showing the outcome after the game was played.
 
-- ### 
+- ### Title
 
-![.](./README-images)
- #### .
+![Title](./README-images/title.png)
+ #### The game name represetns the main game functionality "to hunt the mice".
 
-- ### 
+- ### Sound off / Sound on icons
 
-![.](./README-images) 
- #### .
+![Sound off](./README-images/sound-off.png) 
+![Sound on](./README-images/sound-on.png) 
+ #### Allows the user to control the sounds in the game. The default setting is mute. The user can turn it on by clicking the icon.
 
-- ### Footer
+- ### Username
+![Username](./README-images/username.png) 
+ #### The field to enter the name. It accepts only English letters and spaces. The user is entitled to enter at least one character/space. The maximum characters is set to 20. The entered output is used in messages later in the game and result areas.
 
+ - ### Username
+![Username](./README-images/username.png) 
+ #### The field to enter the name. It accepts only English letters and spaces. The user is entitled to enter at least one character/space. The maximum characters is set to 20. The entered output is used in messages later in the game and result areas.
 
 ## Future features 
 - ...
@@ -72,20 +87,19 @@ Balsamiq was used to create the wireframes during the design process
 ## Testing  
 
 ### Responsiveness
-The website was developed from mobile (320px) to desktop (2000px) and was adapted to fit almost all screens. 
+The game can be played on all devices from 360px to large screens. Its width is limited as it is a mini-game.
 
 Screen resolution | Pass
 --- | :---:
 320px | &check;
-576px | &check;
+360px | &check;
 768px | &check;
-992px | &check;
 1024px | &check;
-1600px | &check;
-2000px | &check;
+1440px | &check;
+1920px | &check;
 
 
-![Responsice Mockup](./README-images)
+![Responsice Mockup](./README-images/responsive.png)
 
 ### Supported browsers
 The website was tested on the following browsers and is working well:
@@ -101,15 +115,25 @@ Savannah | &check;
 
 ### Validator Testing 
 - #### HTML
-  - No errors or warnings to show.
-    - [Home page](./README-images)
+  - [Overall validation](./README-images/html-validation.png)
+    - No errors or warnings to show. Except the warning "Possible misuse of aria-label".
+  - [Warning](./README-images/html-warning.png)
+    - The aria-label is used for the div containers which have background images. These images are the main game functionality. In order for the screen reader to see them and identify, I used aria-labels. 
+  - [404 page](./README-images/404-html-validation.png)
+    - No errors or warnings to show.
 - #### CSS
-  - No errors or warnings to show. (Except for the warning about imported Google Fonts "Imported style sheets are not checked in direct input and file upload modes")
-    - [CSS validation](./README-images)
+No errors or warnings to show. (Except for the warning about imported Google Fonts "Imported style sheets are not checked in direct input and file upload modes")
+  - [Overall result](./README-images/css-validation.png)
+  - [Warning](./README-images/css-warning.png)
 
 ### Accessibility and performance
-  - Using Google Lighthouse I confirmed that the website is readable and accessible. It performs well.
-    - [Home page](./README-images)
+Using Google Lighthouse I confirmed that the website is readable and accessible. It performs well.
+  - Home page
+    - [Desktop](./README-images/desktop-lighthouse.png)
+    - [Mobile](./README-images/mobile-lighthouse.png)
+  - 404 page
+    - [Desktop](./README-images/404-desktop-lighthouse.png)
+    - [Mobile](./README-images/404-mobile-lighthouse.png)
 
 ### Functional testing
 
@@ -124,7 +148,8 @@ Click | Open | &check;
 
 ### Unfixed Bugs
 
-- .
+- The validation of the username is set for letters and spaces (for example, "Tom Hank"). As a result the user may use only spaces as a name.
+- 
 
 
 ## Deployment

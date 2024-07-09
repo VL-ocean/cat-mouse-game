@@ -3,6 +3,7 @@
 // Global variables, arrays
 let username = "";
 let character = 3;
+const winValue = 5;
 const characterArray = [{
     name: "grey",
     normal: "url('./assets/images/grey.webp')",
@@ -374,7 +375,6 @@ function checkValues() {
  * calls next functions to display the result to the user
  */
 function countResult() {
-    const winValue = 5;
     const userScore = parseInt(currentScore.innerHTML);
     if (userScore === winValue) {
         window.setTimeout(displayWin, 1300);
