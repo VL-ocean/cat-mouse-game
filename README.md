@@ -21,8 +21,13 @@ Live link [`Mice hunting`](https://vl-ocean.github.io/mice-huntung/)
 - It includes the instructions for the game.
 
  ### Design
-- Fonts: Caudex, Comfortaa
-- Colors: #BD6E2A orange, #221916 brown, #fff white; ![color](./README-images/color.png)
+- Fonts: Caudex, Comfortaa 
+
+![fonts](./README-images/fonts.png)
+
+- Colors: #BD6E2A orange, #221916 brown, #fff white; 
+
+![color](./README-images/color.png)
 
 
 ## Technologies Used 
@@ -106,6 +111,10 @@ The game has three areas: start area, game area and result area. The [start area
 ![exit button](./README-images/exit.png) 
  #### This button at game area and at result area provides the same functionality. It takes the user to the start area, it refreshes the username and character. The game can be started again, once the player is ready.
 
+  - ### 404 page
+![404 page](./README-images/404-page.png) 
+ #### It provides a user with click-on button. It takes the user to the start area of the game (home page of the website).
+
 
 ## Future features 
 - A wider variety of messages 
@@ -144,12 +153,9 @@ Microsoft Edge | &check;
 
 ### Validator Testing 
 - #### HTML
-  - [Overall validation](./README-images/html-validation.png)
-    - No errors or warnings to show. Except the warning "Possible misuse of aria-label".
-  - [Warning](./README-images/html-warning.png)
-    - The aria-label is used for the div containers which have background images. These images are the main game functionality. In order for the screen reader to see them and identify, I used aria-labels. 
+No errors or warnings to show.
+  - [Main page](./README-images/html-validation.png)
   - [404 page](./README-images/404-html-validation.png)
-    - No errors or warnings to show.
 - #### CSS
 No errors or warnings to show. (Except for the warning about imported Google Fonts "Imported style sheets are not checked in direct input and file upload modes")
   - [Overall result](./README-images/css-validation.png)
@@ -168,17 +174,52 @@ Using Google Lighthouse I confirmed that the website is readable and accessible.
 
 Action |  Expected result | Pass
 --- | --- | :---:
-Click | Open | &check;
+Enter the link "https://vl-ocean.github.io/mice-huntung/" in the address bar | Open the game start area | &check;
+Click on the "sound off" icon at top right corner | Change icon to "sound on", the sound is on | &check;
+Click on the "sound on" icon at top right corner | Change icon to "sound off", the sound is off | &check;
+Type in nothing in the username field and choose no character, click on start game button | Open message "Please enter your name" ([see](./README-images/enter-name.png)) | &check;
+Type in nothing in the username field but choose a character, click on start game button | Open message "Please enter your name" ([see](./README-images/enter-name.png)) | &check;
+Type in numbers in the username field, e.g. "123", click on start game button | Open message "Please use letters only" ([see](./README-images/use-letters.png)) | &check;
+Type in more than 20 characters in the username field, click on start game button | Open message "You can use up to 20 characters only" ([see](./README-images/20-only.png)) | &check;
+Type in the username, e.g. "George", do not select a character, click on start game button | Open message "Please choose a character" ([see](./README-images/no-character-selected.png)) | &check;
+Click on character | Highlight the selected character ([see](./README-images/character-selected.png)) | &check;
+Click on another character | Highlight the clicked character, deselect the previous character | &check;
+Type in the username, e.g. "George", and select a character, e.g. "grey cat", then click on start game button | Open game area. Display grey cat as a character and a message "Feed me, George" ([see](./README-images/feed-me.png)) | &check;
+Click on "Exit" button | Open start area | &check;
+Click on a door | Change image to mouse, increase score by one, reduce tries by one, display message "Excellent, George" | &check;
+Click on a door | Change image to empty, reduce tries by one, display message "Don't worry, George" | &check;
+Use the last try | Display the last choice result, then open result area | &check;
+Find 5 mice in a row (one try is left to use) | Open result area, display win result ([see](./README-images/display-win.png)) | &check;
+Use three tries, click on "Restart" button | Open new game area, ready for a new round ([see](./README-images/restart-clicked.png)) | &check;
+Click on the next door before the soundtrack of the previous one has ended | Stop the sound, new sound is played from the beginning | &check;
+Find four mice and two empties at game area | Open result area, display sad character, message "Better luck next time, George!" and the total score of 4 ([see](./README-images/display-loss.png)) | &check;
+Find 5 mice and 1 empty at game area | Open result area, display happy character, message "Well done, George!" and the total score of 5 ([see](./README-images/display-win.png)) | &check;
+Click on "Play again" button | Open new game area, ready for a new round ([see](./README-images/restart-clicked.png)) | &check;
+Enter broken link in the address bar | Open custom 404 page ([see](./README-images/broken-link.png)) | &check;
+Click on the character at start area, sound is on | Hear cat sound being played | &check;
+Click on the door, sound is on | Hear open-door sound being played | &check;
+Win game, sound is on | Hear win sound being played | &check;
+Lose game, sound is on | Hear loss sound being played | &check;
+Click on any button, sound is on | Hear click sound being played | &check;
+Click on the character at start area, sound is off | Hear no sound being played | &check;
+Click on the door, sound is off | Hear no sound being played | &check;
+Win game, sound is off | Hear no sound being played | &check;
+Lose game, sound is off | Hear no sound being played | &check;
+Click on any button, sound is off | Hear no sound being played | &check;
+
 
 ### Fixed Bugs
 
 - The assignCharacter function didn't work properly. The problem was in setting the background-image url and inserting it as a new style for the element. When looking through some tutorials (W3Schools, Stackoverflow), I have realised that I have set it wrong. I changed it to "url(" + chosenCharacter + ")", then I updated url in the object to "url('./assets/images/grey.webp')", so I can use a variable instead of concatenating and it worked perfectly this way.
-- 
+- All the variables were created using "let". Replaced the permmanent variables with "const".
+- Replaced the for..of function to forEach, since it fits the arrays better.
+- There is no control over the sound for the user. Added icons at top right corner and muted it by default. Now the user can turn the sound on if wants.
+- First two functions which add Event listeners to buttons and characters were too big and shown warnings in JSHint. I divided them into two smaller ones.
+- When validating the html, I got the warning ["Possible misuse of aria-label"](./README-images/html-warning.png). The aria-label was used for the div containers which have background images. These images are the main game functionality and the screen reader should see them and identify. The source https://www.w3schools.com/accessibility/accessibility_meaningful_images.php explains how to inform the browser that the particular image is important and should be read by the screen reader. I have added 'role="img"' next to aria-labels created before. No warnings has been discovered since.
 
 ### Unfixed Bugs
 
-- The validation of the username is set for letters and spaces (for example, "Tom Hank"). As a result the user may use only spaces as a name.
-- 
+- The validation of the username is set for letters and spaces (for example, "Tom Hank"). This will accept a name consisting only of spaces too.
 
 
 ## Deployment
