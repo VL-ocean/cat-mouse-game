@@ -196,18 +196,19 @@ function startGame() {
  * and assigns it to username variable
  */
 function validateUsername() {
-    const enteredUsername = document.getElementById('username').value;
+    const enteredUsername = document.getElementById('username').value.trim();
     // The source https://stackoverflow.com/questions/9628879/javascript-regex-username-validation
-    const usernamePattern = /^[a-zA-Z ]+$/;
+    // The info for bug fix https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+    const usernamePattern = /^[A-z]+\s?[A-z]*$/;
     if (enteredUsername.length < 1) {
         alert("Please enter your name");
     } else if (enteredUsername.length > 20) {
         alert("You can use up to 20 characters only");
-    } else if (enteredUsername.match(usernamePattern)) {
+    } else if (usernamePattern.test(enteredUsername)) {
         username = enteredUsername;
         return true;
     } else {
-        alert("Please use letters only");
+        alert('Please use letters only and one whitespace if you enter two words, e.g. "Tom Hank". No digits or special characters are allowed');
     }
 }
 
@@ -366,7 +367,7 @@ function checkValues() {
         countResult();
     } else if (parseInt(currentScore.innerHTML) === 5) {
         objectsReset();
-        window.setTimeout(displayWin, 1500);
+        window.setTimeout(displayWin, 1200);
     }
 }
 
@@ -377,9 +378,10 @@ function checkValues() {
 function countResult() {
     const userScore = parseInt(currentScore.innerHTML);
     if (userScore === winValue) {
-        window.setTimeout(displayWin, 1300);
+        window.setTimeout(displayWin, 1200);
+        displayWin();
     } else if (userScore < winValue) {
-        window.setTimeout( displayLoss, 1300);
+        window.setTimeout(displayLoss, 1200);
     } else {
         alert("Invalid user score");
     }

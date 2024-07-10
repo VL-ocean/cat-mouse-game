@@ -74,7 +74,7 @@ The game has three areas: start area, game area and result area. The [start area
 
 - ### Username
 ![Username](./README-images/username.png) 
- #### The field to enter the name. It accepts only English letters and spaces. The user is entitled to enter at least one character/space. The maximum characters is set to 20. The entered output is used in messages later in the game and result areas.
+ #### The field to enter the name. It accepts only English letters and whitespace. The user is entitled to enter at least one character. The maximum characters is set to 20. The entered output is used in messages later in the game and result areas.
 
  - ### Choose character
 ![characters](./README-images/choose-character.png) 
@@ -181,7 +181,8 @@ Click on the "sound off" icon at top right corner | Change icon to "sound on", t
 Click on the "sound on" icon at top right corner | Change icon to "sound off", the sound is off | &check;
 Type in nothing in the username field and choose no character, click on start game button | Open message "Please enter your name" ([see](./README-images/enter-name.png)) | &check;
 Type in nothing in the username field but choose a character, click on start game button | Open message "Please enter your name" ([see](./README-images/enter-name.png)) | &check;
-Type in numbers in the username field, e.g. "123", click on start game button | Open message "Please use letters only" ([see](./README-images/use-letters.png)) | &check;
+Type in few whitespaces in the username field and choose no character, click on start game button | Open message "Please enter your name" ([see](./README-images/enter-name.png)) | &check;
+Type in numbers in the username field, e.g. "123", click on start game button | Open message "Please use letters only and one whitespace if you enter two words, e.g. "Tom Hank". No digits or special characters are allowed" ([see](./README-images/use-letters.png)) | &check;
 Type in more than 20 characters in the username field, click on start game button | Open message "You can use up to 20 characters only" ([see](./README-images/20-only.png)) | &check;
 Type in the username, e.g. "George", do not select a character, click on start game button | Open message "Please choose a character" ([see](./README-images/no-character-selected.png)) | &check;
 Click on the character at start area | Highlight the selected character ([see](./README-images/character-selected.png)) | &check;
@@ -225,9 +226,11 @@ Click on any button, sound is off | Hear no sound being played | &check;
 
 - When validating the html, I got the warning ["Possible misuse of aria-label"](./README-images/html-warning.png). The aria-label was used for the div containers which have background images. These images are the main game functionality and the screen reader should see them and identify. The source https://www.w3schools.com/accessibility/accessibility_meaningful_images.php explains how to inform the browser that the particular image is important and should be read by the screen reader. I have added 'role="img"' next to aria-labels created before. No warnings has been discovered since.
 
+- The validation of the username (regular expression) is set for letters and spaces (for example, "Tom Hank"). It has a bug of accepting a name consisting only of whitespaces. To fix it, I replaced a pattern with a better one '/^[A-z]+\s?[A-z]*$/'. I used test method instead of match and added trim method to remove all whitespaces at the beginning and the end of entered words. Now the name accepted cannot have more than one whitespace.
+
 ### Unfixed Bugs
 
-- The validation of the username is set for letters and spaces (for example, "Tom Hank"). This will accept a name consisting only of spaces too.
+- After the user used last try, if he quickly clicks on "Restart" button, he cannot start the new game immediately. The result area will show up anyways, but the total score will be reset to 0, due to countResult function working and calling the displayWin/Loss functions with a delay of 1200ms.
 
 
 ## Deployment
