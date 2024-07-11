@@ -4,30 +4,65 @@ This is a mini game. You are invited to hunt some mice for dinner. You can choos
 
 Live link [`Mice hunting`](https://vl-ocean.github.io/mice-huntung/)
 
-## The planning stage [(click to view the complete file)](./README-files/project-2.txt)
- ### App functionality
-- When planning this project, I described the game as steps which the user follow to play the game. This also includes the structure of the game and what the user can find/see on every area. 
+## User Experience (UX)
 
- ### JavaScript functions
-- It describes how it was planned for the game to work and should be connected using the JavaScript functions.
+To ensure the quality and efficiency of the project, I started it by following the Five Planes of UX. I have noted the outcome in a separate document titled ["Project 2"](./README-files/project-2.md). <sub>(*You can click on the file name to view it*)</sub>
 
- ### JavaScript global variables
-- There are few variables that were planned to be global, such as username, characterArray, etc.
+ ### Strategy level
+The first thing to do was to think about user goals and needs. The main idea is to bring joy to the user. Therefore I have outlined 4 main needs:
+  - Have fun!
+  - Feed the cat!
+  - Make the right choice!
+  - Use your sixth sense
 
- ### Buttons
-- No game can function without the user be able to control it. There are few main buttons, such as start game, restart and exit.
+ ### Scope level
+It has two branches Content Requirements and Functional specification. 
 
- ### Other
-- It includes the instructions for the game.
+#### 1. Content Requirements
+I thought through how the user would go through the game, step by step. I have asked myself two main questions: **What would the user see?** and **What would the user do to use the application?** I have written down the outcome in the 'App steps/functionality' section of the document.
 
- ### Design
-- Fonts: Caudex, Comfortaa 
+#### 2. Functional specification
+The main game idea is to make it possible for the user to click on the box and get different result based on the "element" hiding behind it. So that every new round, it was fun and it had an element of guessing or using the sixth sense. 
+
+It was important for me to understand whether I can make it random and make the game actually work. I have done my research. I found out that the array containing the objects will be perfect to make it happen. Now I had to find how to mix the objects inside the array randomly, to shuffle. The source https://stackoverflow.com/a/12646864 had what I was looking for. 
+
+In the 'JavaScript functions' section I have written down some names of the functions I would use, their description and how they would connect and follow each other building the game functionality. It was a sketch of what I would later build in JavaScript. 
+
+Alongside the functions I have thought through some of the global variables and written them down in the 'JavaScript global variables' section.
+
+ ### Structure level
+While working on the content and functionality, I have dived into Interaction and Information design. I have enlarged the previous two sections and added more details about sections for one page layout game. I have added the 'Buttons' section and described their functions. Then I added 'Other' section, defining the instructions and game terms.
+
+ ### Skeleton level
+Once the functionality seemed complete and doable, I have moved on to the Interface design and how it would look for the user. 
+
+To decide on colours and fonts I have asked for help. The illustrations I used in the game has been drawn by my sister. I have noted the fonts and colours I would use in the 'Design' section of the project 2 file.
+
+In Balsamic I have created the wireframes of each version of layout (mobile, laptop, desktop). 
+
+ ### Surface level (finalised design)
+
+- **Fonts**: Caudex, Comfortaa 
 
 ![fonts](./README-images/fonts.png)
 
-- Colors: #BD6E2A orange, #221916 brown, #fff white; 
+- **Colours**: `#BD6E2A` orange, `#221916` brown, `#fff` white; 
 
 ![color](./README-images/color.png)
+
+- **Wireframes**
+   - Mobile layout
+     - [Start area](./README-images/mobile-start-area.png)
+     - [Game area](./README-images/mobile-game-area.png)
+     - [Result area](./README-images/mobile-result-area.png)
+   - Tablet layout
+     - [Start area](./README-images/tablet-start-area.png)
+     - [Game area](./README-images/tablet-game-area.png)
+     - [Result area](./README-images/tablet-result-area.png)
+   - Desktop layout
+     - [Start area](./README-images/desktop-start-area.png)
+     - [Game area](./README-images/desktop-game-area.png)
+     - [Result area](./README-images/desktop-result-area.png)
 
 
 ## Technologies Used 
@@ -46,18 +81,6 @@ GitHub is used to store the project's code after being pushed from Git.
 Gitpod was used as a platform to develop code in a ready-to-code developer environment.
  - #### [Balsamic](https://balsamiq.com/)
 Balsamiq was used to create the wireframes during the design process
-   - Mobile layout
-     - [Start area](./README-images/mobile-start-area.png)
-     - [Game area](./README-images/mobile-game-area.png)
-     - [Result area](./README-images/mobile-result-area.png)
-   - Tablet layout
-     - [Start area](./README-images/tablet-start-area.png)
-     - [Game area](./README-images/tablet-game-area.png)
-     - [Result area](./README-images/tablet-result-area.png)
-   - Desktop layout
-     - [Start area](./README-images/desktop-start-area.png)
-     - [Game area](./README-images/desktop-game-area.png)
-     - [Result area](./README-images/desktop-result-area.png)
 
 ## Existing Features 
 The game has three areas: start area, game area and result area. The [start area](./README-images/start-area.png) main functionality is to get the user`s name and remember the selected character. The [game area](./README-images/game-area.png) allows the user to participate in the game by clicking on the doors and opening them. The output is either a mouse or an empty place. The [result area](./README-images/result-area.png) is showing the outcome after the game was played.
@@ -287,4 +310,5 @@ Click on any button, sound is off | Hear no sound being played | &check;
   - ### Acknowledgment
     - [Cohort Facilitator - Marko Tot](https://github.com/tmarkec) for support in the classroom and guidance through the course.
     - [Mentor - Dick Vlaanderen](https://github.com/dickvla) for support throughout the project, ideas and advice.
+    - My colleague [Kostiantyn Krysenko](https://github.com/barkode) for advice and knowledge sharing.
     - My sister Anastasiia for help in design and graphic content.
